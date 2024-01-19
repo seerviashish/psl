@@ -32,7 +32,7 @@
     "@graphql-tools/schema": "^10.0.2",
     "@headlessui/react": "^1.7.17",
     "@mui/icons-material": "^5.15.4",
-    "@mui/material": "^5.15.4",
+    "@mui/material": "^5.15.5",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "firebase": "^10.7.1",
