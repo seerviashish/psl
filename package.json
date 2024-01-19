@@ -38,7 +38,7 @@
     "firebase": "^10.7.1",
     "firebase-admin": "^12.0.0",
     "graphql": "^16.8.1",
-    "graphql-ws": "^5.14.2",
+    "graphql-ws": "^5.14.3",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.29.4",
     "mongodb": "^6.3.0",
