@@ -30,7 +30,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@graphql-tools/schema": "^10.0.2",
-    "@headlessui/react": "^1.7.17",
+    "@headlessui/react": "^1.7.18",
     "@mui/icons-material": "^5.15.5",
     "@mui/material": "^5.15.4",
     "bcrypt": "^5.1.1",
