@@ -68,3 +68,6 @@ version.ts
 *.njsproj
 *.sln
 *.sw?
+
+# Graphql Generated
+src/__generated__/**

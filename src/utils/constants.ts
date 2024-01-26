@@ -1,0 +1,2 @@
+export const DEV_REFETCH_INTERVAL = 30 * 60 * 1000
+export const PROD_REFETCH_INTERVAL = 2 * 60 * 60 * 1000

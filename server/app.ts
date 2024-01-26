@@ -86,6 +86,7 @@ yargs
               port: Number(config.getConfig(EnvConfigKey.PORT) || 4000),
               debug: argv.debug,
               envMode: argv.mode as EnvMode,
+              logFilePath: config.getConfig(EnvConfigKey.LOG_FILE_PATH),
             })
             break
           }

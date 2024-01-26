@@ -1,6 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { FBaseProvider } from './context/FBase'
 import { AnalyticsProvider } from './context/analytics'
 import { AuthProvider } from './context/auth'
 import { PermissionProvider } from './context/permission'
@@ -15,17 +16,19 @@ const client = new ApolloClient({
 const App: React.FC = () => {
   return (
     <PermissionProvider>
-      <ApolloProvider client={client}>
-        <AnalyticsProvider>
-          <ThemeProvider>
-            <AuthProvider>
-              <BrowserRouter basename="/">
-                <PageRoutes />
-              </BrowserRouter>
-            </AuthProvider>
-          </ThemeProvider>
-        </AnalyticsProvider>
-      </ApolloProvider>
+      <FBaseProvider>
+        <ApolloProvider client={client}>
+          <AnalyticsProvider>
+            <ThemeProvider>
+              <AuthProvider>
+                <BrowserRouter basename="/">
+                  <PageRoutes />
+                </BrowserRouter>
+              </AuthProvider>
+            </ThemeProvider>
+          </AnalyticsProvider>
+        </ApolloProvider>
+      </FBaseProvider>
     </PermissionProvider>
   )
 }

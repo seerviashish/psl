@@ -1,123 +1,17 @@
-import { gql, useMutation, useQuery } from '@apollo/client'
 import moment from 'moment'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 import { PersonalIdentity, Tenant } from '../../types'
 
-const GET_TENANT = gql`
-  query GetTenant($id: ID!) {
-    getTenant(id: $id) {
-      id
-      name
-      email
-      phoneNumber
-      fatherName
-      fatherPhoneNumber
-      personalId
-      personalIdNumber
-      permanentAddress
-      course
-      college
-      roomNumber
-      rentPaidTill
-      stayFrom
-    }
-  }
-`
-
-const UPDATE_TENANT_DETAILS = gql`
-  mutation UpdateTenantDetails($input: TenantUpdateInput!) {
-    updateTenantDetails(input: $input) {
-      id
-    }
-  }
-`
-
 const TenantView: React.FC = () => {
-  const params = useParams()
   const [tenantValue, setTenantValue] = useState<Partial<Tenant>>()
   const [editable, setEditable] = useState<boolean>(false)
-  const [
-    updateTenantDetails,
-    {
-      loading: updateTenantDetailsLoading,
-      data: updateTenantDetailsData,
-      error: updateTenantDetailsError,
-    },
-  ] = useMutation(UPDATE_TENANT_DETAILS)
-  const {
-    refetch: refetchTenantData,
-    loading: getTenantLoading,
-    data: getTenantData,
-    error: getTenantError,
-  } = useQuery<{ getTenant: Tenant }>(GET_TENANT, {
-    variables: {
-      id: params.tenantId,
-    },
-  })
-  console.log(moment().format('YYYY-MM-DD'))
 
-  useEffect(() => {
-    if (getTenantData?.getTenant) {
-      const tenant = getTenantData?.getTenant
-      console.log(getTenantData?.getTenant)
-      setTenantValue({
-        name: tenant.name,
-        phoneNumber: tenant.phoneNumber,
-
-        fatherName: tenant?.fatherName ?? '',
-        fatherPhoneNumber: tenant?.fatherPhoneNumber ?? '',
-        personalId:
-          tenant?.personalId === PersonalIdentity.ADHARCARD
-            ? PersonalIdentity.ADHARCARD
-            : tenant?.personalId === PersonalIdentity.PANCARD
-              ? PersonalIdentity.PANCARD
-              : undefined,
-        personalIdNumber: tenant?.personalIdNumber ?? '',
-        permanentAddress: tenant?.permanentAddress ?? '',
-        course: tenant?.course ?? '',
-        college: tenant?.college ?? '',
-        roomNumber: tenant?.roomNumber,
-        rentPaidTill: tenant?.rentPaidTill
-          ? new Date(tenant.rentPaidTill)
-          : undefined,
-        stayFrom: tenant?.stayFrom ? new Date(tenant.stayFrom) : undefined,
-      })
-    }
-  }, [getTenantData])
-
-  if (getTenantLoading) {
-    return <p>Loading...</p>
-  }
-
-  if (getTenantError) {
-    return <p>{getTenantError.message}</p>
-  }
-
-  console.log(
-    'update tenant data => ',
-    updateTenantDetailsData,
-    updateTenantDetailsError,
-    updateTenantDetailsLoading
-  )
   const handleInputChange =
     (keyName: keyof Omit<Tenant, 'permanentAddress'>) =>
     (e: React.ChangeEvent<HTMLInputElement>): void => {
       setTenantValue({ ...tenantValue, [keyName]: e.target.value })
     }
 
-  const handleUpdateTenantDetails = (e: React.FormEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    updateTenantDetails({
-      variables: {
-        input: { ...tenantValue, tenantId: getTenantData?.getTenant.id },
-      },
-    }).then(({ data }) => {
-      if (data) {
-        refetchTenantData()
-      }
-    })
-  }
   return (
     <div className="flex flex-col items-center justify-center">
       <h5 className="text-2xl">View/Edit Tenant Details</h5>
@@ -296,7 +190,7 @@ const TenantView: React.FC = () => {
                   e.preventDefault()
                   setEditable(true)
                 }
-              : handleUpdateTenantDetails
+              : () => 0
           }
           type="submit"
           className="m-4 w-2/4 self-center rounded-md border-2 p-2 text-xl"

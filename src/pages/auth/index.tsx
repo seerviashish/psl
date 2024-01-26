@@ -29,7 +29,7 @@ const AuthPage: React.FC = () => {
   }, [formTypeParam])
 
   const handleOnSignIn = async (value: SignInFormValue) => {
-    await authContext?.signIn?.(value)
+    await authContext?.signIn?.(value.email.data, value.password.data)
   }
 
   const handleOnSignInWithGoogle = async () => {
@@ -41,7 +41,7 @@ const AuthPage: React.FC = () => {
   }
 
   const handleOnSignUp = async (value: SignUpFormValue) => {
-    await authContext?.signIn?.(value)
+    await authContext?.signUp?.(value)
   }
 
   const navigateToSignInOrSignUpForm = (form: AuthFormType) => {

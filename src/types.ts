@@ -16,13 +16,14 @@ export type SignInFormValue = {
 }
 
 export type SignUpFormValue = {
-  userName: Optional<FormValue<string>, 'message'>
+  name: Optional<FormValue<string>, 'message'>
   email: Optional<FormValue<string>, 'message'>
   password: Optional<FormValue<string>, 'message'>
   userRole: Optional<
     FormValue<UserRole.TENANT | UserRole.OWNER | undefined>,
     'message'
   >
+  country: Optional<FormValue<FBaseCountryKeyValue | null>, 'message'>
   phoneNumber: Optional<FormValue<string>, 'message'>
 }
 
@@ -130,3 +131,65 @@ export type SignUpWithGoogleParam = {
   phoneNumber: string
   userRole: UserRole
 }
+
+export enum FBaseFeatureID {
+  FIREBASE_EMAIL_SIGN_UP = 'FIREBASE_EMAIL_SIGN_UP',
+  FIREBASE_EMAIL_SIGN_IN = 'FIREBASE_EMAIL_SIGN_IN',
+  FIREBASE_EMAIL_VERIFICATION = 'FIREBASE_EMAIL_VERIFICATION',
+  PHONE_NUMBER_FIELD_IN_SIGN_UP = 'PHONE_NUMBER_FIELD_IN_SIGN_UP',
+  FIREBASE_PHONE_NUMBER_VERIFICATION = 'FIREBASE_PHONE_NUMBER_VERIFICATION',
+  GOOGLE_SIGN_IN = 'GOOGLE_SIGN_IN',
+  GOOGLE_SIGN_UP = 'GOOGLE_SIGN_UP',
+}
+
+export type FBaseFeature = {
+  id: `${FBaseFeatureID}`
+  name: string
+  description: string
+  enabled: boolean
+  dependsOn?: `${FBaseFeatureID}`[] | null | undefined
+}
+
+export enum FBaseConfigKey {
+  CONFIG = 'config',
+  MAINTENANCE = 'maintenance',
+  COUNTRIES = 'counties',
+}
+
+export type FBaseCountryKeyValue = {
+  code: string
+  label: string
+  phone: string
+  phoneNoMask: string
+}
+
+export type FBaseCountriesKeyValue = FBaseCountryKeyValue[]
+
+export type FBaseConfigKeyValue = {
+  sha: string
+  features: FBaseFeature[]
+}[]
+
+export type FBaseMaintenanceDetails = {
+  from: Date
+  till: Date
+  duration: number
+  unit: string
+  message: string
+  title: string
+}
+
+export type FBaseMaintenanceKeyValue = {
+  sha: string
+  enabled: boolean
+  details?: FBaseMaintenanceDetails | null
+}[]
+
+export type FBaseConfig<Key extends `${FBaseConfigKey}`> =
+  Key extends FBaseConfigKey.CONFIG
+    ? FBaseConfigKeyValue
+    : Key extends FBaseConfigKey.MAINTENANCE
+      ? FBaseMaintenanceKeyValue
+      : Key extends FBaseConfigKey.COUNTRIES
+        ? FBaseCountriesKeyValue
+        : null

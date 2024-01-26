@@ -70,4 +70,4 @@ version.ts
 *.sw?
 
 # Firebase ADMIN SDK
-*adminsdk*
+credentials.json

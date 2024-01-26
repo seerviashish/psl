@@ -1,4 +1,3 @@
-import { gql, useMutation } from '@apollo/client'
 import moment from 'moment'
 import { useState } from 'react'
 import { PersonalIdentity } from '../../types'
@@ -19,27 +18,9 @@ type Tenant = {
   stayFrom: Date
 }
 
-const ADD_TENANT = gql`
-  mutation AddTenant($input: TenantCreateInput!) {
-    addTenant(input: $input) {
-      status
-      message
-    }
-  }
-`
-
 const TenantNew: React.FC = () => {
   const [tenantValue, setTenantValue] = useState<Partial<Tenant>>()
-  const [
-    addTenant,
-    { loading: addTenantLoading, data: addTenantData, error: addTenantError },
-  ] = useMutation(ADD_TENANT)
-  console.log(
-    'add tenant data => ',
-    addTenantData,
-    addTenantLoading,
-    addTenantError
-  )
+
   const handleInputChange =
     (keyName: keyof Omit<Tenant, 'permanentAddress'>) =>
     (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -48,16 +29,6 @@ const TenantNew: React.FC = () => {
 
   const handleAddNewTenant = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    addTenant({
-      variables: {
-        input: {
-          ...tenantValue,
-          ...(tenantValue?.roomNumber
-            ? { roomNumber: Number(tenantValue.roomNumber) }
-            : {}),
-        },
-      },
-    })
   }
   return (
     <div className="flex flex-col items-center justify-center">

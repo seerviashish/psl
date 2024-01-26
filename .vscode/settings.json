@@ -5,7 +5,17 @@
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["ADHARCARD", "jwtid", "mkver", "PANCARD", "tailwindcss"],
+  "cSpell.words": [
+    "ADHARCARD",
+    "codegen",
+    "jwtid",
+    "keyv",
+    "keyvadapter",
+    "Millis",
+    "mkver",
+    "PANCARD",
+    "tailwindcss"
+  ],
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },

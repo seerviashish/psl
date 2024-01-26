@@ -15,14 +15,19 @@ import {
   Typography,
 } from '@mui/material'
 import { GoogleAuthProvider } from 'firebase/auth'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { GoogleLoginButton } from 'react-social-login-buttons'
+import { FBaseContext } from '../../context/FBase'
 import {
   AuthFormType,
+  FBaseConfigKey,
+  FBaseCountriesKeyValue,
+  FBaseCountryKeyValue,
   SignInFormValue,
   SignUpFormValue,
   UserRole,
 } from '../../types'
+import { CountryField, TextMaskField } from './customFields'
 
 interface IAuthForm {
   formType: AuthFormType
@@ -50,7 +55,30 @@ const AuthForm: React.FC<IAuthForm> = ({
   handleOnSignUpWithGoogle,
 }) => {
   const [signInValues, setSignInValues] = useState<Partial<SignInFormValue>>({})
-  const [signUpValues, setSignUpValues] = useState<Partial<SignUpFormValue>>({})
+  const [signUpValues, setSignUpValues] = useState<Partial<SignUpFormValue>>({
+    country: {
+      data: {
+        code: 'IN',
+        label: 'India',
+        phone: '91',
+        phoneNoMask: '+91 (####) ###-###',
+      },
+      error: false,
+      message: '',
+    },
+  })
+
+  const { remoteConfig, getConfigValue } = useContext(FBaseContext)
+
+  const [countries, setCountries] = useState<FBaseCountriesKeyValue>([])
+
+  useEffect(() => {
+    if (!getConfigValue || !remoteConfig) return
+    const countries = getConfigValue<FBaseConfigKey.COUNTRIES>(
+      FBaseConfigKey.COUNTRIES
+    )
+    setCountries(countries)
+  }, [remoteConfig, getConfigValue])
 
   const handleOnChange =
     (
@@ -67,34 +95,60 @@ const AuthForm: React.FC<IAuthForm> = ({
             message: '',
           },
         })
-      } else {
-        setSignUpValues({
-          ...signUpValues,
-          [key]: {
-            data:
-              key === 'userRole'
-                ? ((event.target as HTMLInputElement).value as UserRole)
-                : event.target.value,
-            error: false,
-            message: '',
-          },
-        })
+      }
+      if (formType === 'signUp') {
+        if (key === 'phoneNumber' && signUpValues?.['country']?.data == null) {
+          setSignUpValues({
+            ...signUpValues,
+            country: {
+              data: null,
+              error: true,
+              message: 'Please select your country',
+            },
+          })
+        } else {
+          setSignUpValues({
+            ...signUpValues,
+            [key]: {
+              data:
+                key === 'userRole'
+                  ? ((event.target as HTMLInputElement).value as UserRole)
+                  : event.target.value,
+              error: false,
+              message: '',
+            },
+          })
+        }
       }
     }
 
+  const handleOnChangeCountry = (
+    _event: React.SyntheticEvent,
+    value: FBaseCountryKeyValue | null
+  ) => {
+    setSignUpValues({
+      ...signUpValues,
+      country: {
+        data: value,
+        error: false,
+        message: '',
+      },
+    })
+  }
+
   const isSignUpFormValid = (): boolean => {
     let isValid = true
-    const updatedSignUpValue: Partial<SignUpFormValue> = {}
+    const updatedSignUpValue: Partial<SignUpFormValue> = { ...signUpValues }
     if (
-      signUpValues['userName'] == null ||
-      signUpValues?.['userName']?.data?.trim()?.length === 0
+      signUpValues['name'] == null ||
+      signUpValues?.['name']?.data?.trim()?.length === 0
     ) {
       isValid = false
-      updatedSignUpValue['userName'] = {
+      updatedSignUpValue['name'] = {
         data: '',
-        ...(signUpValues?.['userName'] ?? {}),
+        ...(signUpValues?.['name'] ?? {}),
         error: true,
-        message: 'Please enter email address.',
+        message: 'Please enter name.',
       }
     }
     if (
@@ -151,6 +205,17 @@ const AuthForm: React.FC<IAuthForm> = ({
       }
     }
     if (
+      signUpValues['country'] == null ||
+      signUpValues['country']?.data == null
+    ) {
+      isValid = false
+      updatedSignUpValue['country'] = {
+        data: null,
+        error: true,
+        message: 'Please select your country',
+      }
+    }
+    if (
       signUpValues['phoneNumber'] == null ||
       signUpValues?.['phoneNumber']?.data?.trim()?.length === 0
     ) {
@@ -184,27 +249,27 @@ const AuthForm: React.FC<IAuthForm> = ({
   }
   const isSignInFormValid = (): boolean => {
     let isValid = true
-    const updatedSignInValue: Partial<SignInFormValue> = {}
+    const updatedSignInValue: Partial<SignInFormValue> = { ...signInValues }
     if (
-      signUpValues['email'] == null ||
-      signUpValues['email']?.data?.trim()?.length === 0
+      signInValues['email'] == null ||
+      signInValues['email']?.data?.trim()?.length === 0
     ) {
       isValid = false
       updatedSignInValue['email'] = {
         data: '',
-        ...signUpValues['email'],
+        ...signInValues['email'],
         error: true,
         message: 'Please enter email address.',
       }
     }
     if (
-      signUpValues['password'] == null ||
-      signUpValues['password']?.data?.trim()?.length === 0
+      signInValues['password'] == null ||
+      signInValues['password']?.data?.trim()?.length === 0
     ) {
       isValid = false
       updatedSignInValue['password'] = {
         data: '',
-        ...signUpValues['password'],
+        ...signInValues['password'],
         error: true,
         message: 'Please enter password.',
       }
@@ -216,7 +281,7 @@ const AuthForm: React.FC<IAuthForm> = ({
     if (!isSignInFormValid()) {
       return
     }
-    handleOnSignIn(signUpValues as SignInFormValue)
+    handleOnSignIn(signInValues as SignInFormValue)
   }
 
   const signInContent = (
@@ -232,10 +297,10 @@ const AuthForm: React.FC<IAuthForm> = ({
         type="email"
         className="flex w-full"
         placeholder="Enter your email address."
-        value={signUpValues?.email?.data ?? ''}
+        value={signInValues?.email?.data ?? ''}
         onChange={handleOnChange('email', 'signIn')}
-        error={signUpValues?.email?.error ?? false}
-        helperText={signUpValues?.email?.message ?? ''}
+        error={signInValues?.email?.error ?? false}
+        helperText={signInValues?.email?.message ?? ''}
       />
       <TextField
         required
@@ -244,9 +309,9 @@ const AuthForm: React.FC<IAuthForm> = ({
         className="flex w-full"
         placeholder="Enter your password."
         onChange={handleOnChange('password', 'signIn')}
-        value={signUpValues?.password?.data ?? ''}
-        error={signUpValues?.password?.error ?? false}
-        helperText={signUpValues?.password?.message ?? ''}
+        value={signInValues?.password?.data ?? ''}
+        error={signInValues?.password?.error ?? false}
+        helperText={signInValues?.password?.message ?? ''}
       />
       <Link
         component="button"
@@ -284,14 +349,14 @@ const AuthForm: React.FC<IAuthForm> = ({
     >
       <TextField
         required
-        label="Username"
+        label="Name"
         type="text"
         className="flex w-full"
-        placeholder="Enter your user name."
-        value={signUpValues?.userName?.data ?? ''}
-        onChange={handleOnChange('userName', 'signUp')}
-        error={signUpValues?.userName?.error ?? false}
-        helperText={signUpValues?.userName?.message ?? ''}
+        placeholder="Enter your name."
+        value={signUpValues?.name?.data ?? ''}
+        onChange={handleOnChange('name', 'signUp')}
+        error={signUpValues?.name?.error ?? false}
+        helperText={signUpValues?.name?.message ?? ''}
       />
       <TextField
         required
@@ -331,14 +396,43 @@ const AuthForm: React.FC<IAuthForm> = ({
           {signUpValues?.userRole?.message ?? ''}
         </FormHelperText>
       </FormControl>
+      <CountryField
+        countryOptions={
+          countries ?? [
+            {
+              data: {
+                code: 'IN',
+                label: 'India',
+                phone: '91',
+                phoneNoMask: '+91 (####) ###-###',
+              },
+              error: false,
+              message: '',
+            },
+          ]
+        }
+        error={signUpValues?.country?.error ?? false}
+        helperText={signUpValues?.country?.message}
+        value={signUpValues?.country?.data ?? null}
+        onChange={handleOnChangeCountry}
+        required={true}
+        label="Country"
+      />
       <TextField
         required
         label="Mobile Number"
-        type="tel"
         className="flex w-full"
         placeholder="Enter your mobile number."
         value={signUpValues?.phoneNumber?.data ?? ''}
         onChange={handleOnChange('phoneNumber', 'signUp')}
+        InputProps={{
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          inputComponent: TextMaskField as any,
+        }}
+        inputProps={{
+          mask:
+            signUpValues?.country?.data?.phoneNoMask ?? '+(###) ###-########',
+        }}
         error={signUpValues?.phoneNumber?.error ?? false}
         helperText={signUpValues?.phoneNumber?.message ?? ''}
       />

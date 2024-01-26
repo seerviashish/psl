@@ -1,7 +1,6 @@
-import { gql, useMutation, useQuery } from '@apollo/client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ActionResponse, ActionStatus, PersonalIdentity } from '../../types'
+import { PersonalIdentity } from '../../types'
 
 const TENANT_ROW = [
   'Room Number',
@@ -20,95 +19,34 @@ type Tenant = {
   personalIdNumber: string
   roomNumber: number
 }
-
-const GET_TENANTS = gql`
-  query GetTenants {
-    getTenants {
-      id
-      name
-      phoneNumber
-      roomNumber
-      personalId
-      personalIdNumber
-    }
-  }
-`
-
-const REMOVE_TENANT = gql`
-  mutation DeleteTenant($deleteTenantId: ID!) {
-    deleteTenant(id: $deleteTenantId) {
-      message
-      status
-    }
-  }
-`
 interface IDeleteButton {
   tenantId: string
   removeTenantItem: (id: string) => void
 }
 
-const DeleteButton: React.FC<IDeleteButton> = ({
-  tenantId,
-  removeTenantItem,
-}) => {
-  const [
-    removeTenant,
-    { loading: removeTenantLoading, error: removeTenantError },
-  ] = useMutation<{
-    deleteTenant: ActionResponse
-  }>(REMOVE_TENANT)
-
-  const handleRemoveTenant = (deleteTenantId: string) => () => {
-    removeTenant({
-      variables: {
-        deleteTenantId,
-      },
-    }).then((response) => {
-      if (response.data?.deleteTenant?.status === ActionStatus.SUCCESS) {
-        removeTenantItem(tenantId)
-      }
-    })
-  }
-  return (
-    <div className="flex flex-col">
-      <button
-        key={'remove'}
-        className={`radius-sm rounded-md border ${
-          removeTenantLoading ? 'bg-blue-300' : 'bg-red-400'
-        } px-2`}
-        onClick={handleRemoveTenant(tenantId)}
-        disabled={removeTenantLoading}
-      >
-        {removeTenantLoading ? 'Loading...' : 'Remove'}
-      </button>
-      {removeTenantError && (
-        <p className=" text-red-500">{`Failed! Retry ${
-          removeTenantError?.message ?? ''
-        }`}</p>
-      )}
-    </div>
-  )
+const DeleteButton: React.FC<IDeleteButton> = () => {
+  return <div className="flex flex-col"></div>
 }
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate()
   const [tenants, setTenants] = useState<Tenant[]>([])
-  const {
-    loading: loadingTenant,
-    data: tenantData,
-    error: tenantError,
-  } = useQuery<{ getTenants: Tenant[] }>(GET_TENANTS)
+  // const {
+  //   loading: loadingTenant,
+  //   data: tenantData,
+  //   error: tenantError,
+  // } = useQuery<{ getTenants: Tenant[] }>(GET_TENANTS)
 
-  useEffect(() => {
-    setTenants(tenantData?.getTenants ?? [])
-  }, [tenantData])
+  // useEffect(() => {
+  //   setTenants(tenantData?.getTenants ?? [])
+  // }, [tenantData])
 
-  if (loadingTenant) {
-    return <p>Loading...</p>
-  }
-  if (tenantError) {
-    return <p>{tenantError.message}</p>
-  }
+  // if (loadingTenant) {
+  //   return <p>Loading...</p>
+  // }
+  // if (tenantError) {
+  //   return <p>{tenantError.message}</p>
+  // }
 
   const handleRemoveItem = (tenantId: string): void => {
     const updatedTenants = tenants.filter((tenant) => tenant.id !== tenantId)

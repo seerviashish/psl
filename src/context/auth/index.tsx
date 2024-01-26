@@ -1,22 +1,27 @@
-import { Analytics, getAnalytics } from 'firebase/analytics'
-import { initializeApp, type FirebaseApp } from 'firebase/app'
+import { TypedDocumentNode, gql, useMutation } from '@apollo/client'
 import {
   GoogleAuthProvider,
   User,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth'
-import React, { useEffect, useState } from 'react'
-import { AuthState, SignInFormValue, SignUpFormValue } from '../../types'
+import React, { useContext, useEffect, useState } from 'react'
+import {
+  Auth,
+  UserRole as GQLUserRole,
+  Maybe,
+  MutationSignUpArgs,
+} from '../../__generated__/graphql'
+import { AuthState, SignUpFormValue, UserRole } from '../../types'
+import { FBaseContext } from '../FBase'
 export interface IAuthContext {
   isAuthenticated: boolean
-  firebaseApp?: FirebaseApp
-  analytics?: Analytics
   authState?: AuthState
   user?: User | null
   logout?: () => Promise<void>
-  signIn?: (value: SignInFormValue) => Promise<void>
+  signIn?: (email: string, password: string) => Promise<void>
   signInWithGoogle?: () => Promise<void>
   signUp?: (value: SignUpFormValue) => Promise<void>
   signUpWithGoogle?: () => Promise<void>
@@ -35,17 +40,40 @@ interface IAuthProvider {
 const googleProvider = new GoogleAuthProvider()
 
 googleProvider.setCustomParameters({
-  // // display: 'popup',
-  // display: 'redirect'
+  display: 'popup',
 })
+
+const SIGN_UP_MUTATION: TypedDocumentNode<
+  { signUp: Maybe<Auth> },
+  MutationSignUpArgs
+> = gql`
+  mutation SignUp($input: SignUpInput!) {
+    signUp(input: $input) {
+      id
+      name
+      email
+      emailVerified
+      verifiedByAdmin
+      authStep {
+        next
+        previous
+      }
+      profileUrl
+      userRole
+      token
+      refreshToken
+    }
+  }
+`
 
 const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
+  const { firebaseApp } = useContext(FBaseContext)
   const [user, setUser] = useState<User | null>(null)
+  const [signUpMutation /*, { signUpData, signUpLoading, signUpError } */] =
+    useMutation(SIGN_UP_MUTATION)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [authState, _setAuthState] = useState<AuthState>()
-  const [firebaseApp, setFirebaseApp] = useState<FirebaseApp>()
-  const [analytics, setAnalytics] = useState<Analytics>()
 
   const handleAuthChange = (user: User | null) => {
     if (user) {
@@ -62,24 +90,6 @@ const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
     const auth = getAuth(firebaseApp)
     onAuthStateChanged(auth, handleAuthChange)
   }, [firebaseApp])
-
-  useEffect(() => {
-    const firebaseConfig = {
-      apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-      authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-      projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-      storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-      messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-      appId: import.meta.env.VITE_FIREBASE_APP_ID,
-      measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
-    }
-
-    const firebaseApp = initializeApp(firebaseConfig)
-    const analytics = getAnalytics(firebaseApp)
-
-    setFirebaseApp(firebaseApp)
-    setAnalytics(analytics)
-  }, [])
 
   const logout = async () => {
     setIsAuthenticated(false)
@@ -116,9 +126,7 @@ const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
       if (!firebaseApp) return
       const auth = getAuth(firebaseApp)
       const userCredential = await signInWithPopup(auth, googleProvider)
-      const authCredential =
-        GoogleAuthProvider.credentialFromResult(userCredential)
-      console.log('authCredential => ', authCredential)
+      console.log('userCredential => ', userCredential)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const errorCode = error.code
@@ -137,16 +145,57 @@ const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
     }
   }
 
-  const signIn = async () => {}
-  const signUp = async () => {}
+  const signIn = async (email: string, password: string) => {
+    try {
+      if (!firebaseApp) return
+      const auth = getAuth(firebaseApp)
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+      console.log('authCredential => ', userCredential)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      const errorCode = error.code
+      const errorMessage = error.message
+      // The email of the user's account used.
+      const email = error.customData.email
+      // AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error)
+      console.log('error => ', {
+        error,
+        errorCode,
+        email,
+        errorMessage,
+        credential,
+      })
+    }
+  }
+  const signUp = async (signUpFormValue: SignUpFormValue): Promise<void> => {
+    const { name, email, password, userRole, phoneNumber } = signUpFormValue
+    const signUpUserRole: GQLUserRole =
+      userRole!.data! === UserRole.OWNER
+        ? GQLUserRole.Owner
+        : GQLUserRole.Tenant
+    signUpMutation({
+      variables: {
+        input: {
+          email: email.data,
+          name: name.data,
+          password: password.data,
+          phoneNumber: phoneNumber.data.replace(/[()-\s]/g, ''),
+          userRole: signUpUserRole,
+        },
+      },
+    })
+  }
 
   return (
     <Provider
       value={{
         isAuthenticated,
         logout,
-        analytics,
-        firebaseApp,
         authState,
         signInWithGoogle,
         signUpWithGoogle,
