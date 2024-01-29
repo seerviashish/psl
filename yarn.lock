@@ -5066,10 +5066,10 @@ firebase-admin@^12.0.0:
     "@google-cloud/firestore" "^7.1.0"
     "@google-cloud/storage" "^7.7.0"
 
-firebase-tools@^13.0.3:
-  version "13.0.3"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.0.3.tgz#51498142c2677b63d6f8208705a4c1e60011d888"
-  integrity sha512-tGkKQxcN5fH8uFGXtO+6YSHHKT6G7/AAqtOkHQ5bj3jrNi2gGpzUxb7aVzhbr4C7N5gxuifY4R5bcgRriyeNKw==
+firebase-tools@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.1.0.tgz#ed44e0a80349f1b646cd122d9971ea427a1e9ca3"
+  integrity sha512-kY3p3nCv3kjf90AZMhrMu4PT6/otI1kcZGpJJkN9cqBbvj/nNYnnCVy4bXdCVqgCX1+s4G4FwuoW07f9xv/kXw==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
@@ -9679,15 +9679,10 @@ ws@^7.2.3:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
   integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
 
-ws@^8.12.0, ws@^8.13.0:
+ws@^8.12.0, ws@^8.13.0, ws@^8.15.0:
   version "8.16.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.16.0.tgz#d1cd774f36fbc07165066a60e40323eab6446fd4"
   integrity sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==
-
-ws@^8.15.0:
-  version "8.15.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.15.0.tgz#db080a279260c5f532fc668d461b8346efdfcf86"
-  integrity sha512-H/Z3H55mrcrgjFwI+5jKavgXvwQLtfPCUEp6pi35VhoB0pfcHnSoyuTzkBEZpzq49g1193CUEwIvmsjcotenYw==
 
 xdg-basedir@^4.0.0:
   version "4.0.0"
