@@ -35,7 +35,7 @@
     "@graphql-tools/schema": "^10.0.2",
     "@headlessui/react": "^1.7.17",
     "@keyv/redis": "^2.8.4",
-    "@mui/icons-material": "^5.15.7",
+    "@mui/icons-material": "^5.15.8",
     "@mui/material": "^5.15.7",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.1",
