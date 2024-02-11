@@ -194,8 +194,11 @@ class Server {
       context: async (data) => {
         const extendedGraphQLError = ExtendedGraphQLError.getInstance()
         const xClientKey = data?.req?.headers?.['x-client-key']
+        const xAppId = data?.req?.headers?.['x-app-id']
         const xForwardedFor = data?.req?.headers?.['x-forwarded-for']
         const userAgent = data?.req?.headers?.['user-agent']
+
+        console.log('==> ', { xClientKey, xAppId, xForwardedFor, userAgent })
         const clientValidationResult =
           await ClientService.getInstance().validateClient(
             xClientKey as string | undefined
@@ -213,16 +216,40 @@ class Server {
             null
           )
         }
+        if (
+          (!xAppId && typeof xAppId === 'string') ||
+          (typeof xAppId === 'object' && xAppId?.length > 0) ||
+          (!xForwardedFor && typeof xForwardedFor === 'string') ||
+          (typeof xForwardedFor === 'object' && xForwardedFor?.length > 0) ||
+          (!xClientKey && typeof xClientKey === 'string') ||
+          (typeof xClientKey === 'object' && xClientKey?.length > 0) ||
+          !userAgent
+        ) {
+          throw ExtendedGraphQLError.getInstance().generateError(
+            ErrorCode.CLIENT_HEADERS_ERROR_0001,
+            'Required headers not received',
+            ErrorType.EXTENDED_ERROR,
+            {
+              key: ErrorResponseKey.CLIENT_HEADERS_0001,
+              data: {},
+              level: ErrorLevel.INFO,
+            },
+            null
+          )
+        }
         const tokenStatus = await UserService.getInstance().verifyToken(
           data?.req?.headers?.authorization
         )
+
         if (!tokenStatus.isValid || !tokenStatus?.user) {
-          return { clientKey: xClientKey, xForwardedFor }
+          return { xClientKey, xAppId, xForwardedFor, userAgent }
         }
+
         return {
           user: tokenStatus.user,
-          clientKey: xClientKey,
+          xClientKey,
           xForwardedFor,
+          xAppId,
           userAgent,
         }
       },

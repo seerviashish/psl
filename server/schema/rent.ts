@@ -1,6 +1,4 @@
 import { Schema, model } from 'mongoose'
-import { ICurrency } from './currency'
-import { IReceipt, ReceiptSchema } from './receipt'
 
 export interface IRent {
   userId: string
@@ -12,8 +10,8 @@ export interface IRent {
   isLastDayIncluded: boolean
   rentCollectedOn?: Date
   toBePaidTill: Date
-  currency: ICurrency
-  receipt?: IReceipt
+  currency: Schema.Types.ObjectId
+  receipt?: Schema.Types.ObjectId
   isReceiptGenerated: boolean
 }
 
@@ -28,7 +26,12 @@ export const RentSchema = new Schema<IRent>({
   rentCollectedOn: { type: Date },
   toBePaidTill: { type: Date },
   currency: { type: Schema.Types.ObjectId, ref: 'Currencies', required: true },
-  receipt: { type: ReceiptSchema, required: false, default: undefined },
+  receipt: {
+    type: Schema.Types.ObjectId,
+    ref: 'Receipts',
+    required: false,
+    default: undefined,
+  },
   isReceiptGenerated: { type: Boolean, required: true },
 })
 

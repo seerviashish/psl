@@ -1,8 +1,7 @@
 import { Schema, model } from 'mongoose'
-import { IFeature } from './feature'
 
 export interface IPermission {
-  for: IFeature
+  for: Schema.Types.ObjectId
   as: number
 }
 

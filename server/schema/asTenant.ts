@@ -1,71 +1,87 @@
 import { Schema, model } from 'mongoose'
-import { UserRole } from '../types'
-import { AddressSchema, IAddress } from './address'
-import { CollegeSchema, ICollege } from './college'
-import { HouseSchema, IHouse } from './house'
-import {
-  IParentInformation,
-  ParentInformationSchema,
-} from './parentInformation'
-import { IPermission, PermissionSchema } from './permission'
-import { IPersonalIdentity, PersonalIdentitySchema } from './personalIdentity'
-import { IRent, RentSchema } from './rent'
-import { IRentAgreement, RentAgreementSchema } from './rentAgreement'
-import { IStayTime, StayTimeSchema } from './stayTime'
 
 export interface IAsTenant {
-  name: string
-  email: string
-  phoneNumber?: string
-  emailVerified: boolean
-  verifiedByAdmin: boolean
-  userRole: UserRole[]
-  permissions?: IPermission[]
-  profileUrl?: string
-  address?: IAddress
-  parents?: IParentInformation
+  address?: Schema.Types.ObjectId
+  parents?: Schema.Types.ObjectId
   married: boolean
-  identity?: IPersonalIdentity[]
-  college?: ICollege
-  stayAt?: IHouse
-  stayTime?: IStayTime[]
-  rent?: IRent[]
-  agreement?: IRentAgreement[]
+  identity?: Schema.Types.ObjectId[]
+  college?: Schema.Types.ObjectId
+  stayAt?: Schema.Types.ObjectId
+  stayTime?: Schema.Types.ObjectId[]
+  rent?: Schema.Types.ObjectId[]
+  agreement?: Schema.Types.ObjectId[]
   isAgreementDone: boolean
+  isStaying: boolean
 }
 
 export const AsTenantSchema = new Schema<IAsTenant>({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  phoneNumber: { type: String },
-  emailVerified: { type: Boolean, required: true, default: false },
-  verifiedByAdmin: { type: Boolean, required: true, default: false },
-  userRole: {
-    type: [String],
-    required: true,
-    enum: [UserRole.ADMIN, UserRole.OWNER, UserRole.TENANT, UserRole.USER],
-    default: [UserRole.USER],
-  },
-  permissions: {
-    type: [PermissionSchema],
+  address: {
+    type: Schema.Types.ObjectId,
+    ref: 'Addresses',
     required: false,
-    default: [],
+    default: undefined,
   },
-  profileUrl: { type: String },
-  address: { type: AddressSchema, required: false, default: undefined },
   parents: {
-    type: ParentInformationSchema,
+    type: Schema.Types.ObjectId,
+    ref: 'ParentInformation',
     required: false,
     default: undefined,
   },
   married: { type: Boolean, required: true },
-  identity: { type: [PersonalIdentitySchema], required: false, default: [] },
-  college: { type: CollegeSchema, required: false, default: undefined },
-  stayAt: { type: HouseSchema, required: false, default: undefined },
-  stayTime: { type: [StayTimeSchema], required: false, default: [] },
-  rent: { type: [RentSchema], required: false, default: [] },
-  agreement: { type: [RentAgreementSchema], required: false, default: [] },
+  identity: {
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'PersonalIdentities',
+      },
+    ],
+    required: false,
+    default: [],
+  },
+  college: {
+    type: Schema.Types.ObjectId,
+    ref: 'Colleges',
+    required: false,
+    default: undefined,
+  },
+  stayAt: {
+    type: Schema.Types.ObjectId,
+    ref: 'Houses',
+    required: false,
+    default: undefined,
+  },
+  stayTime: {
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'StayTimes',
+      },
+    ],
+    required: false,
+    default: [],
+  },
+  rent: {
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Rents',
+      },
+    ],
+    required: false,
+    default: [],
+  },
+  agreement: {
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'RentAgreements',
+      },
+    ],
+    required: false,
+    default: [],
+  },
   isAgreementDone: { type: Boolean, required: true, default: false },
+  isStaying: { type: Boolean, require: true },
 })
 
 const AsTenantModel = model<IAsTenant>('AsTenants', AsTenantSchema)

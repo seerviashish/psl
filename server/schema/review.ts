@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
 
 export interface IReview {
-  reviewerId?: string
+  reviewerId: Schema.Types.ObjectId
   ratting: number
   title: string
   description: string

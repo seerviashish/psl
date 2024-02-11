@@ -84,7 +84,7 @@ class UserService extends Common {
         phoneNumber,
         emailVerified: false,
         verifiedByAdmin: false,
-        permissions: [defaultUserPermission],
+        permissions: [defaultUserPermission._id],
       })
       const user = await userModel.save()
       this.logFunctionDebug(

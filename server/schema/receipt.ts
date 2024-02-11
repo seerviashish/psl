@@ -1,31 +1,31 @@
 import { Schema, model } from 'mongoose'
-import { IPrint, PrintSchema } from './print'
-import { ISignature, SignatureSchema } from './signature'
 
 export interface IReceipt {
   version: number
-  ownerSignature?: ISignature
-  tenantSignature?: ISignature
+  ownerSignature?: Schema.Types.ObjectId
+  tenantSignature?: Schema.Types.ObjectId
   isOwnerSigned: boolean
   isTenantSigned: boolean
-  print: IPrint
+  print: Schema.Types.ObjectId
 }
 
 export const ReceiptSchema = new Schema<IReceipt>({
   version: { type: Number, required: true },
   ownerSignature: {
-    type: SignatureSchema,
+    type: Schema.Types.ObjectId,
+    ref: 'Signatures',
     required: false,
     default: undefined,
   },
   tenantSignature: {
-    type: SignatureSchema,
+    type: Schema.Types.ObjectId,
+    ref: 'Signatures',
     required: false,
     default: undefined,
   },
   isOwnerSigned: { type: Boolean, required: true },
   isTenantSigned: { type: Boolean, required: true },
-  print: { type: PrintSchema, require: true },
+  print: { type: Schema.Types.ObjectId, ref: 'Prints', require: true },
 })
 
 const ReceiptModel = model<IReceipt>('Receipts', ReceiptSchema)
