@@ -1,14 +1,12 @@
 import { Schema, model } from 'mongoose'
-import { ICountry } from './country'
-import { IState } from './state'
 
 export interface IAddress {
   name: string
   number: string
   street: string
-  state: IState
+  state: Schema.Types.ObjectId
   city: string
-  country: ICountry
+  country: Schema.Types.ObjectId
   postalCode: string
 }
 

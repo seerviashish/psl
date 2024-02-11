@@ -1,8 +1,10 @@
 import { Logger as WinstonLogger } from 'winston'
+import { ExtendedGraphQLError } from '../graphql/error'
 import Logger from './logger'
 
 abstract class Common {
   protected logger?: WinstonLogger
+  protected extendedGraphQLError?: ExtendedGraphQLError
 
   public constructor() {
     this.getLogger = this.getLogger.bind(this)
@@ -15,6 +17,7 @@ abstract class Common {
   private getLogger(): WinstonLogger {
     if (!this.logger) {
       this.logger = Logger.getInstance().getLogger()
+      this.extendedGraphQLError = ExtendedGraphQLError.getInstance()
     }
     return this.logger
   }

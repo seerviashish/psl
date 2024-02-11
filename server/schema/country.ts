@@ -1,10 +1,9 @@
 import { Schema, model } from 'mongoose'
-import { IState } from './state'
 
 export interface ICountry {
   code: string
   name: string
-  states?: IState[]
+  states?: Schema.Types.ObjectId[]
 }
 
 export const CountrySchema = new Schema<ICountry>({

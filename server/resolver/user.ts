@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { GraphQLResolveInfo } from 'graphql'
-import Config, { EnvConfigKey } from '../global/config'
-import { ExtendedError, ExtendedGraphQLError } from '../graphql/error'
+import Common from '../global/common'
+import { ExtendedError } from '../graphql/error'
+import { ISessionDocument } from '../schema/session'
 import { IUserDocument } from '../schema/user'
+import AuthService from '../services/auth'
 import SessionService from '../services/session'
 import UserService from '../services/user'
 import {
   Auth,
+  AuthSteps,
   ErrorCode,
   ErrorLevel,
   ErrorResponseKey,
@@ -14,19 +17,23 @@ import {
   ServerContext,
   SignInInput,
   SignUpInput,
+  TokenType,
+  User,
+  UserRole,
 } from '../types'
 
-class UserResolver {
+class UserResolver extends Common {
   private static instance: UserResolver
-  private static bcryptSaltRounds: number = 10
-  private static jwtSecret?: string
   private userService?: UserService
   private sessionService?: SessionService
-  private extendedGraphQLError?: ExtendedGraphQLError
+  private authService?: AuthService
+
   private constructor() {
+    super()
     this.signIn = this.signIn.bind(this)
     this.signUp = this.signUp.bind(this)
     this.init = this.init.bind(this)
+    this.getUserFrom = this.getUserFrom.bind(this)
   }
   public static getInstance(): UserResolver {
     if (!UserResolver.instance) {
@@ -41,8 +48,34 @@ class UserResolver {
     context: ServerContext,
     _info: GraphQLResolveInfo
   ): Promise<Auth> {
-    return {} as Auth
+    return {
+      id: 'id',
+      name: 'Name',
+      email: 'da',
+      phoneNumber: '124123',
+      emailVerified: false,
+      verifiedByAdmin: false,
+      authStep: {
+        previous: AuthSteps.SIGN_IN,
+        next: AuthSteps.REDIRECT_TO_HOME,
+      },
+      refreshToken: 'dad',
+      token: 'dadafa',
+      userRole: [UserRole.USER],
+    } as Auth
   }
+
+  private async getUserFrom(userDocument?: IUserDocument): Promise<User> {
+    return {
+      id: '1',
+      name: 'dad',
+      email: 'daad',
+      emailVerified: false,
+      verifiedByAdmin: false,
+      userRole: [UserRole.USER],
+    }
+  }
+
   public async signUp(
     _parent: unknown,
     args: { input: SignUpInput },
@@ -83,22 +116,13 @@ class UserResolver {
           null
         )
       }
-      const { xForwardedFor, userAgent, clientKey } = context
-      if (!clientKey) {
-        throw this.extendedGraphQLError?.generateError(
-          ErrorCode.CLIENT_INVALID_0001,
-          'clientKey is found null in context',
-          ErrorType.EXTENDED_INTERNAL_ERROR,
-          null,
-          null
-        )
-      }
-
+      const { xForwardedFor, userAgent, xClientKey, xAppId } = context
       const sessionCreation = await this.sessionService?.createSession({
-        clientKey,
+        clientKey: xClientKey as string,
+        appId: xAppId as string,
         userId: (userCreation?.user as IUserDocument)._id,
         userAgent,
-        ipv4: xForwardedFor,
+        ipv4: xForwardedFor as string,
       })
       if (!sessionCreation?.isCreated) {
         throw this.extendedGraphQLError?.generateError(
@@ -109,7 +133,55 @@ class UserResolver {
           null
         )
       }
-      return {} as Auth
+      if (
+        (!xAppId && typeof xAppId === 'string') ||
+        (typeof xAppId === 'object' && xAppId?.length > 0)
+      ) {
+        throw this.extendedGraphQLError?.generateError(
+          ErrorCode.CLIENT_HEADERS_ERROR_0001,
+          'xAppId header not found',
+          ErrorType.EXTENDED_ERROR,
+          null,
+          null
+        )
+      }
+
+      const refreshToken = await this.authService?.generateTokens(
+        TokenType.REFRESH_TOKEN,
+        xAppId as string,
+        userCreation?.user as IUserDocument,
+        sessionCreation?.session as ISessionDocument,
+        []
+      )
+
+      const sessionToken = await this.authService?.generateTokens(
+        TokenType.SESSION_TOKEN,
+        xAppId as string,
+        userCreation?.user as IUserDocument,
+        sessionCreation?.session as ISessionDocument,
+        []
+      )
+
+      if (!refreshToken?.isGenerated || !sessionToken?.isGenerated) {
+        throw this.extendedGraphQLError?.generateError(
+          ErrorCode.SIGN_UP_ERROR_0004,
+          'tokens generation failed',
+          ErrorType.EXTENDED_ERROR,
+          null,
+          null
+        )
+      }
+
+      const user = await this.getUserFrom(userCreation?.user)
+      return {
+        ...user,
+        token: sessionToken?.token,
+        refreshToken: refreshToken?.token,
+        authStep: {
+          previous: AuthSteps.SIGN_UP,
+          next: AuthSteps.REDIRECT_TO_EMAIL_VERIFICATION,
+        },
+      } as Auth
     } catch (error: unknown) {
       throw error instanceof ExtendedError
         ? error
@@ -126,13 +198,8 @@ class UserResolver {
   }
 
   public init(): UserResolver {
-    const config = Config.getInstance()
-    this.extendedGraphQLError = ExtendedGraphQLError.getInstance()
-    UserResolver.jwtSecret = config.getConfig(EnvConfigKey.JWT_SECRET)
-    UserResolver.bcryptSaltRounds = parseInt(
-      config.getConfig(EnvConfigKey.BCRYPT_SALT_ROUNDS)
-    )
     this.userService = UserService.getInstance()
+    this.authService = AuthService.getInstance()
     this.sessionService = SessionService.getInstance()
     return UserResolver.instance
   }

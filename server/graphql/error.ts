@@ -2,7 +2,7 @@ import { GraphQLError } from 'graphql'
 import { type Logger as WinstonLogger } from 'winston'
 import Config from '../global/config'
 import Logger from '../global/logger'
-import { ErrorCode, ErrorLevel, ErrorType } from '../types'
+import { ErrorCode, ErrorLevel, ErrorResponseKey, ErrorType } from '../types'
 
 export class ExtendedError extends GraphQLError {
   readonly code: ErrorCode
@@ -65,7 +65,14 @@ class ExtendedGraphQLError {
     code: ErrorCode,
     message: string,
     type: ErrorType,
-    response: unknown,
+    response:
+      | {
+          key: ErrorResponseKey
+          data: unknown
+          level: ErrorLevel
+        }
+      | null
+      | unknown,
     error: unknown
   ): ExtendedError {
     this.log?.error(

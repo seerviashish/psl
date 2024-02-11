@@ -1,8 +1,5 @@
 import { Schema, model } from 'mongoose'
 import { RentCollectionMonth, RentCollectionType } from '../types'
-import { ICurrency } from './currency'
-import { IPrint, PrintSchema } from './print'
-import { ISignature, SignatureSchema } from './signature'
 
 export interface IRentAgreement {
   houseId: string
@@ -18,13 +15,13 @@ export interface IRentAgreement {
   isAdvancePaid: boolean
   rentAmount: number
   incrementRatePerYear: number
-  currency: ICurrency
+  currency: Schema.Types.ObjectId
   version: number
-  ownerSignature?: ISignature
-  tenantSignature?: ISignature
+  ownerSignature?: Schema.Types.ObjectId
+  tenantSignature?: Schema.Types.ObjectId
   isOwnerSigned: boolean
   isTenantSigned: boolean
-  print: IPrint
+  print: Schema.Types.ObjectId
 }
 
 export const RentAgreementSchema = new Schema<IRentAgreement>({
@@ -59,18 +56,20 @@ export const RentAgreementSchema = new Schema<IRentAgreement>({
   currency: { type: Schema.Types.ObjectId, ref: 'Currencies', required: true },
   version: { type: Number, required: true },
   ownerSignature: {
-    type: SignatureSchema,
+    type: Schema.Types.ObjectId,
+    ref: 'Signatures',
     required: false,
     default: undefined,
   },
   tenantSignature: {
-    type: SignatureSchema,
+    type: Schema.Types.ObjectId,
+    ref: 'Signatures',
     required: false,
     default: undefined,
   },
   isOwnerSigned: { type: Boolean, required: true },
   isTenantSigned: { type: Boolean, required: true },
-  print: { type: PrintSchema, require: true },
+  print: { type: Schema.Types.ObjectId, ref: 'Prints', require: true },
 })
 
 const RentAgreementModel = model<IRentAgreement>(

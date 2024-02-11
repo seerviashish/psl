@@ -52,16 +52,16 @@ class Logger {
         options?.mode != undefined && options?.mode !== EnvModeType.LOCAL
           ? json()
           : printf(({ level, message, timestamp, stack, [SPLAT]: splat }) => {
-              return `${timestamp} ${level}: ${stack || message} ${
+              return `${timestamp} [${level}]:\n${stack || message} ${
                 splat
                   ?.map((data?: unknown) => {
                     return typeof data === 'object'
-                      ? JSON.stringify(data)
+                      ? JSON.stringify(data, null, '\t')
                       : data
                   })
                   ?.filter((data?: unknown) => data != undefined)
                   ?.join(' ') ?? ''
-              }`
+              }\n`
             })
       ),
       transports: [

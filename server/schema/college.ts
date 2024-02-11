@@ -1,15 +1,14 @@
 import { Schema, model } from 'mongoose'
-import { AddressSchema, IAddress } from './address'
 
 export interface ICollege {
   name: string
-  address: IAddress
+  address: Schema.Types.ObjectId
   course: string
 }
 
 export const CollegeSchema = new Schema<ICollege>({
   name: { type: String, required: true },
-  address: { type: AddressSchema, required: true },
+  address: { type: Schema.Types.ObjectId, ref: 'Addresses', required: true },
   course: { type: String, required: true },
 })
 

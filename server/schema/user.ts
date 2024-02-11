@@ -2,9 +2,6 @@ import { Schema, model } from 'mongoose'
 
 import { Document, WithId } from 'mongodb'
 import { UserRole } from '../types'
-import { AsTenantSchema, IAsTenant } from './asTenant'
-import { IPermission, PermissionSchema } from './permission'
-import { ISession, SessionSchema } from './session'
 
 export interface IUser {
   uid: string
@@ -15,9 +12,9 @@ export interface IUser {
   verifiedByAdmin: boolean
   userRole: UserRole[]
   profileUrl?: string
-  sessions?: ISession[]
-  asTenant?: IAsTenant
-  permissions?: IPermission[]
+  sessions?: Schema.Types.ObjectId[]
+  asTenant?: Schema.Types.ObjectId[]
+  permissions?: Schema.Types.ObjectId[]
   createdAt?: Date
   updatedAt?: Date
 }
@@ -37,11 +34,35 @@ const UserSchema = new Schema<IUser>(
       default: [UserRole.USER],
     },
     profileUrl: { type: String },
-    sessions: { type: [SessionSchema], required: false, default: [] },
-    asTenant: { type: AsTenantSchema, required: false, default: undefined },
-    permissions: { type: [PermissionSchema], required: false, default: [] },
+    sessions: {
+      type: [{ type: Schema.Types.ObjectId, ref: 'Sessions' }],
+      required: false,
+      default: [],
+    },
+    asTenant: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'AsTenants',
+        },
+      ],
+      required: false,
+      default: undefined,
+    },
+    permissions: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Permissions',
+        },
+      ],
+      required: false,
+      default: [],
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 )
 
 const UserModel = model<IUser>('Users', UserSchema)

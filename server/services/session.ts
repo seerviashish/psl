@@ -4,10 +4,12 @@ import Common from '../global/common'
 import Config, { EnvConfigKey } from '../global/config'
 import ClientModel from '../schema/client'
 import SessionModel, { ISession } from '../schema/session'
+import UserModel from '../schema/user'
 
 type CreateSessionInput = {
   clientKey: string
   userId: Types.ObjectId
+  appId: string
   ipv4?: string
   userAgent?: string
 }
@@ -33,7 +35,16 @@ class SessionService extends Common {
     createSessionInput: CreateSessionInput
   ): Promise<CreateSessionResult> {
     try {
-      const { userId, clientKey } = createSessionInput
+      const { userId, clientKey, appId } = createSessionInput
+      this.logFunctionDebug(
+        __filename,
+        this.createSession.name,
+        ' appId for session creation: ',
+        { appId }
+      )
+      if (!appId) {
+        return { isCreated: false }
+      }
       const clientDocument = await ClientModel.findOne({
         key: clientKey,
       })
@@ -46,22 +57,17 @@ class SessionService extends Common {
       if (!clientDocument || !clientDocument?.enabled) {
         return { isCreated: false }
       }
-      const SESSION_EXPIRE_TIME = Config.getInstance().getConfig(
-        EnvConfigKey.SESSION_EXPIRE_TIME
-      )
       const SESSION_TOKEN_EXPIRE_TIME = Config.getInstance().getConfig(
         EnvConfigKey.SESSION_TOKEN_EXPIRE_TIME
       )
       const SESSION_REFRESH_TOKEN_EXPIRE_TIME = Config.getInstance().getConfig(
         EnvConfigKey.SESSION_REFRESH_TOKEN_EXPIRE_TIME
       )
-
       this.logFunctionDebug(
         __filename,
         this.createSession.name,
         ' session expire times: ',
         {
-          SESSION_EXPIRE_TIME,
           SESSION_REFRESH_TOKEN_EXPIRE_TIME,
           SESSION_TOKEN_EXPIRE_TIME,
         }
@@ -83,9 +89,9 @@ class SessionService extends Common {
         client: clientDocument._id,
         userId,
         tokenId,
+        appId,
         sessionId,
         refreshTokenId,
-        expire: Number(SESSION_EXPIRE_TIME),
         tokenExpire: Number(SESSION_TOKEN_EXPIRE_TIME),
         refreshTokenExpire: Number(SESSION_REFRESH_TOKEN_EXPIRE_TIME),
       })
@@ -99,6 +105,25 @@ class SessionService extends Common {
         }
       )
       if (!sessionDocument) {
+        return { isCreated: false }
+      }
+      const userUpdatedDocument = await UserModel.updateOne(
+        {
+          _id: userId,
+        },
+        {
+          $set: {
+            sessions: [sessionDocument._id],
+          },
+        }
+      )
+      this.logFunctionDebug(
+        __filename,
+        this.createSession.name,
+        ' user document created with session ',
+        { userUpdatedDocument }
+      )
+      if (userUpdatedDocument.modifiedCount !== 1) {
         return { isCreated: false }
       }
       return { isCreated: true, session: sessionDocument }

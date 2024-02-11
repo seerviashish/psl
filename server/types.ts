@@ -51,14 +51,12 @@ export type Permission<F> = {
 }
 
 export type AuthToken = {
-  email: string
-  name: string
-  exp: Date
-  iss: string
-  role: UserRole[]
-  pto: Permission<Feature>[]
-  iat: Date
-  sid: string
+  aid: string
+  eou: string
+  nou: string
+  rou: UserRole[]
+  pof: Permission<Feature>[]
+  iat: number
 }
 
 type IUser = {
@@ -273,13 +271,15 @@ export type AuthStep = {
 
 export type Auth = User & {
   token: string
+  refreshToken: string
   authStep: AuthStep
 }
 
 export interface ServerContext extends BaseContext {
-  clientKey?: string
+  xClientKey?: string | string[]
+  xAppId?: string | string[]
+  xForwardedFor?: string | string[]
   user?: User
-  xForwardedFor?: string
   userAgent?: string
 }
 
@@ -326,15 +326,19 @@ export enum ErrorResponseKey {
   SIGN_UP_0001 = 'SIGN_UP_0001',
   CLIENT_INVALID_0001 = 'CLIENT_INVALID_0001',
   CLIENT_INVALID_0002 = 'CLIENT_INVALID_0002',
+  CLIENT_HEADERS_0001 = 'CLIENT_HEADERS_0001',
+  SIGN_UP_ERROR_0004 = 'SIGN_UP_ERROR_0004',
 }
 
 export enum ErrorCode {
   CLIENT_INVALID_0001 = 'CLIENT_INVALID_0001',
   CLIENT_INVALID_0002 = 'CLIENT_INVALID_0002',
+  CLIENT_HEADERS_ERROR_0001 = 'CLIENT_HEADERS_ERROR_0001',
   USER_RESOLVER_0001 = 'USER_RESOLVER_0001',
   SIGN_UP_ERROR_0001 = 'SIGN_UP_ERROR_0001',
   SIGN_UP_ERROR_0002 = 'SIGN_UP_ERROR_0002',
   SIGN_UP_ERROR_0003 = 'SIGN_UP_ERROR_0003',
+  SIGN_UP_ERROR_0004 = 'SIGN_UP_ERROR_0004',
   SESSION_CREATION_FAILED_0001 = 'SESSION_CREATION_FAILED_0001',
   PSL_INTERNAL_SERVER_ERROR = 'PSL_INTERNAL_SERVER_ERROR',
   PSL_UNKNOWN_ERROR = 'PSL_UNKNOWN_ERROR',
@@ -348,4 +352,9 @@ export type ValidationError = {
 export type ValidationResult = {
   isValid: boolean
   errors?: ValidationError[]
+}
+
+export enum TokenType {
+  REFRESH_TOKEN = 'REFRESH_TOKEN',
+  SESSION_TOKEN = 'SESSION_TOKEN',
 }
