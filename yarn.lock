@@ -5884,10 +5884,10 @@ ignore@^5.2.0, ignore@^5.2.4:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.0.tgz#67418ae40d34d6999c95ff56016759c718c82f78"
   integrity sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==
 
-imask@^7.4.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/imask/-/imask-7.4.0.tgz#02f69ad6d68625557a76398c9fcedfe755d06841"
-  integrity sha512-fU6mCo5YiTeDI8aVreuOKLOWxXIrRVnuQhZQXbjhwHxQb3GOQyCtlDGMyHxu2gq//LnKDxTwDBq1teRHmkzA3Q==
+imask@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/imask/-/imask-7.5.0.tgz#dc191f3297794ecc9afc62041816a2909a8d36bd"
+  integrity sha512-eoTEnw67KAamB1zsiYtU35s0Fj1XYZ8mN2q3ZDGO4ot4FtPmBpw9S6kOTj0kaOILdsEA6ZhNtH2TAMXe/NChmQ==
   dependencies:
     "@babel/runtime-corejs3" "^7.23.9"
 
@@ -8099,12 +8099,12 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-imask@^7.4.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/react-imask/-/react-imask-7.4.0.tgz#59d776046acedc7c3e608a6f93cfe09d825db119"
-  integrity sha512-U7O2IhIKIGF0ch16xBinwbWGfsgeDyM3KcftD8/bWLuES+KQOjv8wCjX2QZNiAqsZ3FgSembaJmqAN8XlB5LbA==
+react-imask@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/react-imask/-/react-imask-7.5.0.tgz#ba751c3b29c263fc47293e49755a5f0a369a12f8"
+  integrity sha512-yWExhHphDmNaHvmOsYR+5QcludeBdYk6bXyo8kouIJFAub5sF+O0kLPVupg2yhd7EfTqjLswFZ/tqY1AhKnd9Q==
   dependencies:
-    imask "^7.4.0"
+    imask "^7.5.0"
     prop-types "^15.8.1"
 
 react-is@^16.13.1, react-is@^16.7.0:
