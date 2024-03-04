@@ -31,7 +31,7 @@
     "@apollo/utils.keyvadapter": "^3.1.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/roboto": "^5.0.8",
+    "@fontsource/roboto": "^5.0.12",
     "@graphql-tools/schema": "^10.0.3",
     "@headlessui/react": "^1.7.17",
     "@keyv/redis": "^2.8.4",
