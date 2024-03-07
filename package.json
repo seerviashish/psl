@@ -94,7 +94,7 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "tsc-watch": "^6.0.4",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "vite": "^5.1.5",
     "winston": "^3.12.0"
   },
