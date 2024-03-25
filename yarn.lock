@@ -9508,10 +9508,10 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vite@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.2.1.tgz#670fed5aa8be0248166d5ec993ff91c6204ffe9e"
-  integrity sha512-ZIE1f8IMISi1JytOKF3wQXI7R6nyHGWXwWFbJVdQEPWHFISoy7nyZ5ec+eGGzIoYy4qJWl/c8WgzBB16jN7Ghg==
+vite@^5.2.6:
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.2.6.tgz#fc2ce309e0b4871e938cb0aca3b96c422c01f222"
+  integrity sha512-FPtnxFlSIKYjZ2eosBQamz4CbyrTizbZ3hnGJlh/wMtCrlp1Hah6AzBLjGI5I2urTfNnpovpHdrL6YRuBOPnCA==
   dependencies:
     esbuild "^0.20.1"
     postcss "^8.4.36"
