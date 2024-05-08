@@ -33,7 +33,7 @@
     "@emotion/styled": "^11.11.5",
     "@fontsource/roboto": "^5.0.13",
     "@graphql-tools/schema": "^10.0.3",
-    "@headlessui/react": "^2.0.1",
+    "@headlessui/react": "^2.0.3",
     "@keyv/redis": "^2.8.5",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.16",
