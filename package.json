@@ -41,7 +41,7 @@
     "dotenv": "^16.4.5",
     "firebase": "^10.12.4",
     "firebase-admin": "^12.3.0",
-    "google-auth-library": "^9.11.0",
+    "google-auth-library": "^9.12.0",
     "graphql": "^16.9.0",
     "graphql-ws": "^5.16.0",
     "jsonwebtoken": "^9.0.2",
