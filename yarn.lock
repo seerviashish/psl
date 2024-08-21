@@ -2135,6 +2135,13 @@
   dependencies:
     ioredis "^5.4.1"
 
+"@keyv/serialize@*":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@keyv/serialize/-/serialize-1.0.0.tgz#1123aadbed6200e6b11ed642db7a8291e778660e"
+  integrity sha512-BckrffCXqE2eMxl8LjOpc6vY3TTduILoiFwytNhJtQfhMDKhepq4+EAyP9qMCy38Fxs9g4RRCe/6mimdap1/vQ==
+  dependencies:
+    buffer "^6.0.3"
+
 "@mapbox/node-pre-gyp@^1.0.11":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.11.tgz#417db42b7f5323d79e93b34a6d7a2a12c0df43fa"
@@ -6444,12 +6451,19 @@ kareem@2.6.3:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.6.3.tgz#23168ec8ffb6c1abfd31b7169a6fb1dd285992ac"
   integrity sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==
 
-keyv@^4.4.0, keyv@^4.5.3, keyv@^4.5.4:
+keyv@^4.4.0, keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.4.tgz#a879a99e29452f942439f2a405e3af8b31d4de93"
   integrity sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==
   dependencies:
     json-buffer "3.0.1"
+
+keyv@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/keyv/-/keyv-5.0.0.tgz#f7dc34681f8a9e823dab5664ae7b3e74202a5701"
+  integrity sha512-qtmxo+NR06YxIrywQzkxQG5bsNKR4GlOHZzrJHKsRXATU8ivqptnMllSuPIJRtaLmDGWdAK/n6JVfbBgRfTuXQ==
+  dependencies:
+    "@keyv/serialize" "*"
 
 kuler@^2.0.0:
   version "2.0.0"
