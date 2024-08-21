@@ -5140,10 +5140,10 @@ firebase-admin@^12.3.1:
     "@google-cloud/firestore" "^7.7.0"
     "@google-cloud/storage" "^7.7.0"
 
-firebase-tools@^13.15.2:
-  version "13.15.2"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.15.2.tgz#a00d0d79d164f8864cfedbe038d7f8b6ba5d9bb8"
-  integrity sha512-tZCAEDakS5/U2Kler5+JqDvAa0uaFvBttHfbu8PMeX8NxvXPUZ+nkGUHJD6aiZZMKZWkb7pgKcX7ZN8QTpwb0g==
+firebase-tools@^13.15.3:
+  version "13.15.3"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.15.3.tgz#20d513179ea59a6d251a56c053074a546812d862"
+  integrity sha512-NoX9r43AXPeQqeTDaMfe/Kr0PyJcpxT18viltGQ5k3/MiwTdXpMKW+N0zRAyeam0/Az7X812e1vI3umeR4JTYQ==
   dependencies:
     "@google-cloud/cloud-sql-connector" "^1.3.3"
     "@google-cloud/pubsub" "^4.5.0"
@@ -5209,7 +5209,7 @@ firebase-tools@^13.15.2:
     uuid "^8.3.2"
     winston "^3.0.0"
     winston-transport "^4.4.0"
-    ws "^7.2.3"
+    ws "^7.5.10"
     yaml "^2.4.1"
 
 firebase@^10.13.0:
@@ -9800,10 +9800,10 @@ write-file-atomic@^3.0.0:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
-ws@^7.2.3:
-  version "7.5.9"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
-  integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
+ws@^7.5.10:
+  version "7.5.10"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.10.tgz#58b5c20dc281633f6c19113f39b349bd8bd558d9"
+  integrity sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==
 
 ws@^8.12.0, ws@^8.13.0, ws@^8.15.0, ws@^8.18.0:
   version "8.18.0"
