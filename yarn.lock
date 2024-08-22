@@ -2128,10 +2128,10 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@keyv/redis@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-3.0.0.tgz#0c587678c7f860611588c5c368013d25d3f6d9e4"
-  integrity sha512-pqtgyG3DcqWQQD1/9UXA+hsJueSX77qqGEJU+s779v/UifPXoZLSzyFEzxyDU8BRdxJft+NC53yUe0UMHUN2VQ==
+"@keyv/redis@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-3.0.1.tgz#c62e88d056cdc993449332ca16d5153a6ec92df6"
+  integrity sha512-eyqzomQC76LjUOEkPP8rdR2Fk4eZBSS0Ma47i7CNiQuv8NCw3trZvghx8L5Xruk7XPEj/eRAMrAxP//xQFOPdQ==
   dependencies:
     ioredis "^5.4.1"
 
