@@ -6468,10 +6468,10 @@ keyv@^4.4.0, keyv@^4.5.3:
   dependencies:
     json-buffer "3.0.1"
 
-keyv@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/keyv/-/keyv-5.0.0.tgz#f7dc34681f8a9e823dab5664ae7b3e74202a5701"
-  integrity sha512-qtmxo+NR06YxIrywQzkxQG5bsNKR4GlOHZzrJHKsRXATU8ivqptnMllSuPIJRtaLmDGWdAK/n6JVfbBgRfTuXQ==
+keyv@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/keyv/-/keyv-5.0.1.tgz#4c7918f33cb7fc6403a6d8efa4edf854ee2574b1"
+  integrity sha512-NH+3ditq1O5uTSQiiHrGOTkwUniRox/lZ8tHARdsu5Skyv0AhZca0OCycWfR1fTECvSRftMQnXqx7cBpxo8G1g==
   dependencies:
     "@keyv/serialize" "*"
 
