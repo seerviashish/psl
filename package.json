@@ -34,7 +34,7 @@
     "@fontsource/roboto": "^5.0.14",
     "@graphql-tools/schema": "^10.0.6",
     "@headlessui/react": "^2.1.2",
-    "@keyv/redis": "^3.0.0",
+    "@keyv/redis": "^3.0.1",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.5",
     "bcrypt": "^5.1.1",
