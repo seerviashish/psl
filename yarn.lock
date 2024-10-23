@@ -143,14 +143,14 @@
   resolved "https://registry.yarnpkg.com/@apollo/utils.isnodelike/-/utils.isnodelike-2.0.1.tgz#08a7e50f08d2031122efa25af089d1c6ee609f31"
   integrity sha512-w41XyepR+jBEuVpoRM715N2ZD0xMD413UiJx8w5xnAZD2ZkSJnMJBoIzauK83kJpSgNuR6ywbV29jG9NmxjK0Q==
 
-"@apollo/utils.keyvadapter@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@apollo/utils.keyvadapter/-/utils.keyvadapter-3.1.0.tgz#4393e59f22f72ab087af0ed3cb0ddece0fe29e09"
-  integrity sha512-q41MxH2gKwvXL28hUEfQHdSQ0F4u8KrPHUbvN/IkA7vh+KTRj0tG2eWLu42c438jjoV7hUhY1Ru/Dwq8zndEqg==
+"@apollo/utils.keyvadapter@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@apollo/utils.keyvadapter/-/utils.keyvadapter-4.0.0.tgz#20a2c79f7d431328eebeb686b8e907a535a83ca4"
+  integrity sha512-rZuJOee52QD25C3LcC4OR1GEHa3JZme6mW9fjZk7K1a4gF2+Ru2vFuDuvWkjfOv3ipYsiEnOD6hK5dX1VsO4DQ==
   dependencies:
     "@apollo/utils.keyvaluecache" "^3.1.0"
     dataloader "^2.1.0"
-    keyv "^4.4.0"
+    keyv "^5.1.0"
 
 "@apollo/utils.keyvaluecache@^2.1.0":
   version "2.1.1"
@@ -6450,7 +6450,7 @@ kareem@2.6.3:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.6.3.tgz#23168ec8ffb6c1abfd31b7169a6fb1dd285992ac"
   integrity sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==
 
-keyv@^4.4.0, keyv@^4.5.3:
+keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.4.tgz#a879a99e29452f942439f2a405e3af8b31d4de93"
   integrity sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==
