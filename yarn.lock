@@ -2149,10 +2149,10 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@keyv/redis@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.0.0.tgz#0ddc9b970fa42dece22397ce4e343a773ee9716a"
-  integrity sha512-q1jW6KfegIiArg90QnJ4vpd+fpl0onbxlZSt8yTzVjXH62pBRmoDXgekOf5o6pBqDJUu2/bjLc96BT4AZUP9fA==
+"@keyv/redis@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.0.1.tgz#3d05b95f32478f6a64e015175d2900330317eec2"
+  integrity sha512-EUve2POa0H66CpaMMgTNPCQyFkVASW95DHDAd3CllgwT/qf3aQTWavfAFooPpNHMebh/8JtAlWSQo+yz8ub2Wg==
   dependencies:
     keyv "*"
     redis "^4.7.0"
