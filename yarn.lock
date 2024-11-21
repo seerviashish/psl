@@ -1072,11 +1072,6 @@
     "@firebase/util" "1.10.2"
     tslib "^2.1.0"
 
-"@firebase/app-types@0.9.2":
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.9.2.tgz#8cbcceba784753a7c0066a4809bc22f93adee080"
-  integrity sha512-oMEZ1TDlBz479lmABwWsWjzHwheQKiAgnuKxE0pz0IXCVx7/rtlkx1fQ6GfgK24WCrxDKMplZrT50Kh04iMbXQ==
-
 "@firebase/app-types@0.9.3":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.9.3.tgz#8408219eae9b1fb74f86c24e7150a148460414ad"
@@ -1155,21 +1150,13 @@
     "@firebase/util" "1.10.2"
     tslib "^2.1.0"
 
-"@firebase/database-types@1.0.7":
+"@firebase/database-types@1.0.7", "@firebase/database-types@^1.0.6":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@firebase/database-types/-/database-types-1.0.7.tgz#8a0819ca8c486fc967d3a9021a008c8f969576bf"
   integrity sha512-I7zcLfJXrM0WM+ksFmFdAMdlq/DFmpeMNa+/GNsLyFo5u/lX5zzkPzGe3srVWqaBQBY5KprylDGxOsP6ETfL0A==
   dependencies:
     "@firebase/app-types" "0.9.3"
     "@firebase/util" "1.10.2"
-
-"@firebase/database-types@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@firebase/database-types/-/database-types-1.0.6.tgz#97e3026e726ebfd489dbce095371b47c69387bc9"
-  integrity sha512-sMI7IynSZBsyGbUugc8PKE1jwKbnvaieAz/RxuM57PZQNCi6Rteiviwcw/jqZOX6igqYJwXWZ3UzKOZo2nUDRA==
-  dependencies:
-    "@firebase/app-types" "0.9.2"
-    "@firebase/util" "1.10.1"
 
 "@firebase/database@1.0.10":
   version "1.0.10"
@@ -1380,13 +1367,6 @@
   dependencies:
     "@firebase/component" "0.6.11"
     "@firebase/util" "1.10.2"
-    tslib "^2.1.0"
-
-"@firebase/util@1.10.1":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-1.10.1.tgz#1af07dff98320b45c6eb46d7992e88800b97cba2"
-  integrity sha512-AIhFnCCjM8FmCqSNlNPTuOk3+gpHC1RkeNUBLtPbcqGYpN5MxI5q7Yby+rxycweOZOCboDzfIj8WyaY4tpQG/g==
-  dependencies:
     tslib "^2.1.0"
 
 "@firebase/util@1.10.2":
@@ -5128,10 +5108,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firebase-admin@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-13.0.0.tgz#60505da85b60da82071fc4e6e4d23a7de070a21d"
-  integrity sha512-tgm4+NT051tv237g4rLz6L5TJ4l1QwPjzysBJKnukP8fvdJQuXUNpqQONptNbNeLEUkRAroGNuEg5v3aVPzkbw==
+firebase-admin@^13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-13.0.1.tgz#cd358d1b3ee99e4dc727e293e727f8fb23b7d74c"
+  integrity sha512-sKQ/Yw8o/WdC9qTKvuLMBjTbdcBISIXW4+M9PXk0bNjxEbZf1Er7EVq47eRb5+bnKof10xlns6zAIbj4tmSexg==
   dependencies:
     "@fastify/busboy" "^3.0.0"
     "@firebase/database-compat" "^2.0.0"
