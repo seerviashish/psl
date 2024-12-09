@@ -30,7 +30,7 @@
     "@apollo/server": "^4.11.2",
     "@apollo/utils.keyvadapter": "^4.0.0",
     "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.5",
+    "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.1.0",
     "@graphql-tools/schema": "^10.0.10",
     "@headlessui/react": "^2.2.0",
