@@ -45,7 +45,7 @@
     "graphql": "^16.10.0",
     "graphql-ws": "^5.16.0",
     "jsonwebtoken": "^9.0.2",
-    "keyv": "^5.2.2",
+    "keyv": "^5.2.3",
     "moment": "^2.30.1",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.2",
