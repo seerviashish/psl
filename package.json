@@ -36,7 +36,7 @@
     "@headlessui/react": "^2.2.0",
     "@keyv/redis": "^4.0.2",
     "@mui/icons-material": "^5.16.11",
-    "@mui/material": "^5.16.13",
+    "@mui/material": "^5.16.14",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "firebase": "^11.1.0",
