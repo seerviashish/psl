@@ -5731,10 +5731,10 @@ graphql-ws@^5.14.0:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.16.2.tgz#7b0306c1bdb0e97a05e800ccd523f46fb212e37c"
   integrity sha512-E1uccsZxt/96jH/OwmLPuXMACILs76pKF2i3W861LpKBCYtGIyPQGtWLuBLkND4ox1KHns70e83PS4te50nvPQ==
 
-graphql-ws@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-6.0.2.tgz#5ea5b21cdb155cc40d1564b0d51568fccb9d90b2"
-  integrity sha512-9fzn1gacbVA2h8JWQhStEfHiGnrF0lJJJLdAJWvwBVEw8h6khOrQy/WO1cXopLGgnzls4gIeMj+csZVTnsDzrw==
+graphql-ws@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-6.0.3.tgz#8f20ee60f900650411be476f507bda5ff9b0844e"
+  integrity sha512-mvLRHihMg0llF74vo16063HufZHMGaiMxAjzyj0ARYueIikGzj1khlbPNl7vUc2h9rxbq9pGpQYbqypgq1fAXA==
 
 graphql@^16.10.0:
   version "16.10.0"
