@@ -26,7 +26,7 @@
     "server:dev": "yarn server:prebuild && rimraf .server && tsc-watch --noClear -p ./tsconfig.server.json --onSuccess \"node .server/app.js start --debug true\""
   },
   "dependencies": {
-    "@apollo/client": "^3.12.9",
+    "@apollo/client": "^3.12.10",
     "@apollo/server": "^4.11.3",
     "@apollo/utils.keyvadapter": "^4.0.0",
     "@emotion/react": "^11.14.0",
