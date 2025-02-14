@@ -5193,10 +5193,10 @@ firebase-admin@^13.0.2:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/storage" "^7.14.0"
 
-firebase-tools@^13.31.0:
-  version "13.31.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.31.0.tgz#295bc723306382c9239f6e40a1b6de3a8c03f5b4"
-  integrity sha512-bLnS9d2HLjPb1OFJICa2f0AJjBu8mclo7MOeiUhTAIv0j22g+GpLTPyfglsxvy5UWQ/XuWP6xx/51zqTutVH0Q==
+firebase-tools@^13.31.1:
+  version "13.31.1"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.31.1.tgz#5bfabb3ea0417c61a23059e058d93a595d240bf2"
+  integrity sha512-CzQsIwa7sh/0/bNhmg0lYxf4xltMA8nRX665ATpFSuzSyb3j7m5iQjI1og/gjBSTgGfXU7e/ULWkr8wDdbFqoQ==
   dependencies:
     "@electric-sql/pglite" "^0.2.16"
     "@google-cloud/cloud-sql-connector" "^1.3.3"
