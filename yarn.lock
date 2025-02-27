@@ -8228,10 +8228,10 @@ react-router@7.2.0:
     set-cookie-parser "^2.6.0"
     turbo-stream "2.4.0"
 
-react-social-login-buttons@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/react-social-login-buttons/-/react-social-login-buttons-4.1.0.tgz#a56ac631c409e85f2f7b3b8df6c41905adb63086"
-  integrity sha512-PoZKH6h3eKGgcviFC5Sh50QDVQ5KhFf7MrPTFBU/wwPNn0DVNEb5km+T7z83+CiM24Z8qV/H82wHZ4OE6gcawQ==
+react-social-login-buttons@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/react-social-login-buttons/-/react-social-login-buttons-4.1.1.tgz#126c5445726f0fe64c7c260ee13513cad5f53ff5"
+  integrity sha512-GEFP+QmW9y9wSfEVrlvKDtfh1mMI4Nj1XO+Di727ND22h1+g1tYbQSydz26nNq6IKnHqe7bJiJ10sqBKm39DQg==
 
 react-transition-group@^4.4.5:
   version "4.4.5"
