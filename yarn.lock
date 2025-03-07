@@ -1584,17 +1584,17 @@
     yaml "^2.3.1"
     yargs "^17.0.0"
 
-"@graphql-codegen/client-preset@^4.6.0", "@graphql-codegen/client-preset@^4.6.4":
-  version "4.6.4"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/client-preset/-/client-preset-4.6.4.tgz#3fbbb0fe69ba105bc116d7b6f4b099073956e534"
-  integrity sha512-xV9jovI3zpyJfXYm6gc9YBSmMQViRp5GF7EkLS0XOPwo8YO8P40fX363p/SVwG8tYKhGNcnUq+yCzBuwVPV7Fg==
+"@graphql-codegen/client-preset@^4.6.0", "@graphql-codegen/client-preset@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/client-preset/-/client-preset-4.7.0.tgz#2d9422e7d51bc3d0e2134daa056c75fd0d7e7ed6"
+  integrity sha512-U15GrsvSd0k6Wgo3vFN/oJMTMWUtbEkjQhifrfzkJpvUK+cqyB+C/SgLdSbzyxKd3GyMl8kfwgGr5K+yfksQ/g==
   dependencies:
     "@babel/helper-plugin-utils" "^7.20.2"
     "@babel/template" "^7.20.7"
     "@graphql-codegen/add" "^5.0.3"
     "@graphql-codegen/gql-tag-operations" "4.0.16"
     "@graphql-codegen/plugin-helpers" "^5.1.0"
-    "@graphql-codegen/typed-document-node" "^5.0.15"
+    "@graphql-codegen/typed-document-node" "^5.1.0"
     "@graphql-codegen/typescript" "^4.1.5"
     "@graphql-codegen/typescript-operations" "^4.5.1"
     "@graphql-codegen/visitor-plugin-common" "^5.7.1"
@@ -1645,10 +1645,10 @@
     "@graphql-tools/utils" "^10.0.0"
     tslib "~2.6.0"
 
-"@graphql-codegen/typed-document-node@^5.0.15":
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typed-document-node/-/typed-document-node-5.0.15.tgz#7e86f04bd49612919328b94958ce9732d852a6de"
-  integrity sha512-zU6U/96NeZKdGdMb4OKQURIkBS4qOK28NwP1UB2cbCMcsrAm/IOt18ihaqu8USVdC5knuMjpZ63vPjsHDX77dw==
+"@graphql-codegen/typed-document-node@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typed-document-node/-/typed-document-node-5.1.0.tgz#9060b8a5c7bd936b9da620d4e03789d02a66f823"
+  integrity sha512-CkMI1zmVd6nCoynzr3GO7RawWJIkt4AdCmS3wPxb3u8lwElcKTK7QCKA2d/fveC8OM0cATur+l0hyAkIkMft9g==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.1.0"
     "@graphql-codegen/visitor-plugin-common" "5.7.1"
