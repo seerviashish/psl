@@ -2139,10 +2139,10 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@keyv/redis@^4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.3.1.tgz#81f6221044368a4d8c2e1bc99151472830c1bf49"
-  integrity sha512-+UJU9eFBOFbvfg/Om8ajCPa5NxtctpQuE2ElE5Wf7xwbghmhlbLsJ2K4ZEmPnUF0YUolFBJFHd/ukDIvyTA5kw==
+"@keyv/redis@^4.3.2":
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.3.2.tgz#1f31635415aceb188aeb7d874b07ae8b021ab8cb"
+  integrity sha512-9LtpIiRArUIg+hj1hV87d0G+1/229S0Ybi2bupc497oRzHOhYojUkApfubHjMDnYcNuEY7JQTdHlYYCPxhaZfg==
   dependencies:
     cluster-key-slot "^1.1.2"
     keyv "^5.3.1"
