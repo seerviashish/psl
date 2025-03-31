@@ -95,7 +95,7 @@
     "ts-node": "^10.9.2",
     "tsc-watch": "^6.2.1",
     "typescript": "^5.8.2",
-    "vite": "^6.2.3",
+    "vite": "^6.2.4",
     "winston": "^3.17.0"
   },
   "lint-staged": {
