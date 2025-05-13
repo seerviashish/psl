@@ -1159,21 +1159,13 @@
     "@firebase/util" "1.11.1"
     tslib "^2.1.0"
 
-"@firebase/database-types@1.0.11":
+"@firebase/database-types@1.0.11", "@firebase/database-types@^1.0.6":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@firebase/database-types/-/database-types-1.0.11.tgz#75c01325da1247a131c9db1a747b92414e9e82e6"
   integrity sha512-LBZG/nT6GbntbIdGxBNvu9PBtj4xUEE9wX8AFF6njFK/MufYBESiKqT+jhDwmbcM4zAha9U0Pcca8FvJ1z1bYw==
   dependencies:
     "@firebase/app-types" "0.9.3"
     "@firebase/util" "1.11.1"
-
-"@firebase/database-types@^1.0.6":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@firebase/database-types/-/database-types-1.0.10.tgz#14cfed45bb06394cf1641e19265cbf90e4f6fb51"
-  integrity sha512-mH6RC1E9/Pv8jf1/p+M8YFTX+iu+iHDN89hecvyO7wHrI4R1V0TXjxOHvX3nLJN1sfh0CWG6CHZ0VlrSmK/cwg==
-  dependencies:
-    "@firebase/app-types" "0.9.3"
-    "@firebase/util" "1.11.0"
 
 "@firebase/database@1.0.15":
   version "1.0.15"
@@ -1385,13 +1377,6 @@
   dependencies:
     "@firebase/component" "0.6.14"
     "@firebase/util" "1.11.1"
-    tslib "^2.1.0"
-
-"@firebase/util@1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-1.11.0.tgz#e74ee2dc260ec4f9e75fe5d52bc4b0254d9872a9"
-  integrity sha512-PzSrhIr++KI6y4P6C/IdgBNMkEx0Ex6554/cYd0Hm+ovyFSJtJXqb/3OSIdnBoa2cpwZT1/GW56EmRc5qEc5fQ==
-  dependencies:
     tslib "^2.1.0"
 
 "@firebase/util@1.11.1":
@@ -5470,10 +5455,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firebase-admin@^13.3.0:
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-13.3.0.tgz#82e1378d88da5a6226f4e5899abfb0ae5ff75e6f"
-  integrity sha512-MFxv86Aw2rjM/TpKwU86jN7YUFfN1jy6mREYZTLL1aW1rCpZFi4c70b9U12J9Xa4RbJkiXpWBAwth9IVSqR91A==
+firebase-admin@^13.4.0:
+  version "13.4.0"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-13.4.0.tgz#7bf6a2573bf0bb2c0b5c9ac08af18992c38bd972"
+  integrity sha512-Y8DcyKK+4pl4B93ooiy1G8qvdyRMkcNFfBSh+8rbVcw4cW8dgG0VXCCTp5NUwub8sn9vSPsOwpb9tE2OuFmcfQ==
   dependencies:
     "@fastify/busboy" "^3.0.0"
     "@firebase/database-compat" "^2.0.0"
