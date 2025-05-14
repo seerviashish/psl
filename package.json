@@ -43,7 +43,7 @@
     "firebase-admin": "^13.4.0",
     "google-auth-library": "^9.15.1",
     "graphql": "^16.11.0",
-    "graphql-ws": "^6.0.4",
+    "graphql-ws": "^6.0.5",
     "jsonwebtoken": "^9.0.2",
     "keyv": "^5.3.3",
     "moment": "^2.30.1",
