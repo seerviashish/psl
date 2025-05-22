@@ -142,12 +142,12 @@
   resolved "https://registry.yarnpkg.com/@apollo/utils.isnodelike/-/utils.isnodelike-2.0.1.tgz#08a7e50f08d2031122efa25af089d1c6ee609f31"
   integrity sha512-w41XyepR+jBEuVpoRM715N2ZD0xMD413UiJx8w5xnAZD2ZkSJnMJBoIzauK83kJpSgNuR6ywbV29jG9NmxjK0Q==
 
-"@apollo/utils.keyvadapter@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@apollo/utils.keyvadapter/-/utils.keyvadapter-4.0.0.tgz#20a2c79f7d431328eebeb686b8e907a535a83ca4"
-  integrity sha512-rZuJOee52QD25C3LcC4OR1GEHa3JZme6mW9fjZk7K1a4gF2+Ru2vFuDuvWkjfOv3ipYsiEnOD6hK5dX1VsO4DQ==
+"@apollo/utils.keyvadapter@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@apollo/utils.keyvadapter/-/utils.keyvadapter-4.0.1.tgz#6f8d44207e9d86893ab344e05fe6eb324aa95bb7"
+  integrity sha512-nCsAM/uNi17sta6f98FOBiQc8qwx3As78LfUGmHWzaKnwpolzeV8Phz04W723CSaDGxeo/gxEkkQiK0oAdvGxw==
   dependencies:
-    "@apollo/utils.keyvaluecache" "^3.1.0"
+    "@apollo/utils.keyvaluecache" "^4.0.0"
     dataloader "^2.1.0"
     keyv "^5.1.0"
 
@@ -159,13 +159,13 @@
     "@apollo/utils.logger" "^2.0.1"
     lru-cache "^7.14.1"
 
-"@apollo/utils.keyvaluecache@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@apollo/utils.keyvaluecache/-/utils.keyvaluecache-3.1.0.tgz#acda4c4b1906233dcca3239d77c5d75b3058a81f"
-  integrity sha512-MM/DKIqpQQbuNG1gNPAlGc45THdWkroTmN8o/J09merFwf/LlZ7+lAfcHFDXIYIknwKmUjJrOMS3OxYbjrz2hA==
+"@apollo/utils.keyvaluecache@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@apollo/utils.keyvaluecache/-/utils.keyvaluecache-4.0.0.tgz#c183fcc87263589e9e402651b2bb692e9f2353e0"
+  integrity sha512-mKw1myRUkQsGPNB+9bglAuhviodJ2L2MRYLTafCMw5BIo7nbvCPNCkLnIHjZ1NOzH7SnMAr5c9LmXiqsgYqLZw==
   dependencies:
     "@apollo/utils.logger" "^3.0.0"
-    lru-cache "^10.0.0"
+    lru-cache "^11.0.0"
 
 "@apollo/utils.logger@^2.0.0", "@apollo/utils.logger@^2.0.1":
   version "2.0.1"
@@ -7127,7 +7127,7 @@ lower-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
-lru-cache@^10.0.0, lru-cache@^10.0.1, lru-cache@^10.2.0:
+lru-cache@^10.0.1, lru-cache@^10.2.0:
   version "10.2.2"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz#48206bc114c1252940c41b25b41af5b545aca878"
   integrity sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==
