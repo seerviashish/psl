@@ -4502,7 +4502,7 @@ cross-inspect@1.0.1:
   dependencies:
     tslib "^2.4.0"
 
-cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2, cross-spawn@^7.0.3, cross-spawn@^7.0.5:
+cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2, cross-spawn@^7.0.3, cross-spawn@^7.0.5, cross-spawn@^7.0.6:
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.6.tgz#8a58fe78f00dcd70c370451759dfbfaf03e8ee9f"
   integrity sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==
@@ -9386,7 +9386,7 @@ streamx@^2.15.0:
   optionalDependencies:
     bare-events "^2.2.0"
 
-string-argv@^0.3.1, string-argv@^0.3.2:
+string-argv@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.2.tgz#2b6d0ef24b656274d957d54e0a4bbf6153dc02b6"
   integrity sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==
@@ -9800,15 +9800,15 @@ ts-node@^10.9.2:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
-tsc-watch@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/tsc-watch/-/tsc-watch-6.3.1.tgz#b082cae71c599e3af18344cff31342ea17bc6f85"
-  integrity sha512-x1hNJ/m1Cln2OvNJJLPsnWI1pObm+Jq9jF6kyz0flEy/ym7Y9TvU9edg6lXLuGVkhDClwBWi8aWAFE0qgzEkzw==
+tsc-watch@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/tsc-watch/-/tsc-watch-7.0.0.tgz#fcf774d355d83ffae1da3f489a66efafa98d4cf3"
+  integrity sha512-Y1O0yB9gt7hnJ1hJ2WUcx/T898niAI1w8ZZA/tmbFyRawF5SiGbwCv8DX+Zwhcmt3dyO6PvmIF6R/GNEGyWIvg==
   dependencies:
-    cross-spawn "^7.0.3"
+    cross-spawn "^7.0.6"
     node-cleanup "^2.1.2"
     ps-tree "^1.2.0"
-    string-argv "^0.3.1"
+    string-argv "^0.3.2"
 
 tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.3:
   version "2.7.0"
