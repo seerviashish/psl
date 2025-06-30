@@ -2292,10 +2292,10 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@keyv/redis@^4.4.1":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.4.1.tgz#36bf3892a90f68bd8d977b3a6e5bc698df7a9142"
-  integrity sha512-ALRB/prv0ZQW+m20EaO9f9Jduzakd2edBhfq/Ro/T/AA6RQ4bn3FYNJKSORgPFgn19tWCYdivovSQgSsxkxufg==
+"@keyv/redis@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.5.0.tgz#5ffd4efab7072cb80b2bb9cd19655f9a495629d8"
+  integrity sha512-0uoeT8Ik0R22mqxB19Cf3nDuxCH8dppEMxL98o4LvI/rgVeWS/2iVWyjmZR6yNo6jSchVraXG2Y44iJwj++2IQ==
   dependencies:
     "@redis/client" "^1.6.0"
     cluster-key-slot "^1.1.2"
