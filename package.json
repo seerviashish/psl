@@ -58,7 +58,7 @@
     "shelljs": "^0.10.0",
     "uuid": "^11.1.0",
     "winston-daily-rotate-file": "^5.0.0",
-    "ws": "^8.18.2",
+    "ws": "^8.18.3",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
