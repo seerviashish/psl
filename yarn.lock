@@ -2304,13 +2304,14 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@keyv/redis@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.5.0.tgz#5ffd4efab7072cb80b2bb9cd19655f9a495629d8"
-  integrity sha512-0uoeT8Ik0R22mqxB19Cf3nDuxCH8dppEMxL98o4LvI/rgVeWS/2iVWyjmZR6yNo6jSchVraXG2Y44iJwj++2IQ==
+"@keyv/redis@^4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-4.6.0.tgz#518076b29dea24cd141d8f8204f5f5af20310b3d"
+  integrity sha512-FP3FP42RiQ3j0UC6f4Maf7ISTLAIivm37/SdfG5xvhqceMMq3kabtC6T4a2h5byMnh4S8PjP51DY/9CpyrcfsQ==
   dependencies:
     "@redis/client" "^1.6.0"
     cluster-key-slot "^1.1.2"
+    hookified "^1.10.0"
 
 "@keyv/serialize@^1.0.3":
   version "1.0.3"
@@ -6256,6 +6257,11 @@ hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
   dependencies:
     react-is "^16.7.0"
+
+hookified@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/hookified/-/hookified-1.10.0.tgz#ee7d7c83d6dec027aaa2296a8ffeadd84cbd9fd2"
+  integrity sha512-dJw0492Iddsj56U1JsSTm9E/0B/29a1AuoSLRAte8vQg/kaTGF3IgjEWT8c8yG4cC10+HisE1x5QAwR0Xwc+DA==
 
 html-entities@^2.5.2:
   version "2.5.2"
