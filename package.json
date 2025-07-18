@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
-    "@apollo/server": "^4.12.2",
+    "@apollo/server": "^5.0.0",
     "@apollo/utils.keyvadapter": "^4.0.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
