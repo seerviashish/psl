@@ -2261,14 +2261,14 @@
   resolved "https://registry.yarnpkg.com/@kamilkisiela/fast-url-parser/-/fast-url-parser-1.1.4.tgz#9d68877a489107411b953c54ea65d0658b515809"
   integrity sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==
 
-"@keyv/redis@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-5.0.0.tgz#cc4f555196e1472151b5857dc780f512d4df72f7"
-  integrity sha512-4f1fqmxa8QZFlnO9WDEAHVXaq9xLc6n6gIwwx6A9XyJ4RLocw5czFlStmp8ihbXZjQk0baNe+UAAJ47G7W+Giw==
+"@keyv/redis@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-5.1.0.tgz#c30686dbe4ccfa9698b2b6a259c54d1112169423"
+  integrity sha512-89qUAT0+5m3/w/n438yR8fmrWvy0cWTbwp+hKAQrw52otaKalogag+Cj3uOUV4qAly5iusmeCSD/hyepFsHgdw==
   dependencies:
-    "@redis/client" "^5.6.0"
+    "@redis/client" "^5.7.0"
     cluster-key-slot "^1.1.2"
-    hookified "^1.10.0"
+    hookified "^1.11.0"
 
 "@keyv/serialize@^1.1.0":
   version "1.1.0"
@@ -2592,10 +2592,10 @@
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.29.0.tgz#f29bdad3bff1336aaa754d7abc420da2f014d931"
   integrity sha512-IDQYu/AHgZimObzCFdNl1LpZvQW/xcfLt3v20sorl5qRucDVj4S9os98sVTZ4IRIBjmS+MkjqpR5E70xan7ooA==
 
-"@redis/client@^5.6.0":
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/@redis/client/-/client-5.6.0.tgz#bf2d5fb7008e3dbad3f57097d380ef7904f909cc"
-  integrity sha512-wmP9kCFElCSr4MM4+1E4VckDuN4wLtiXSM/J0rKVQppajxQhowci89RGZr2OdLualowb8SRJ/R6OjsXrn9ZNFA==
+"@redis/client@^5.7.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@redis/client/-/client-5.8.0.tgz#16963d9211faac13c62e7d9dbf1672dec5ba6d4d"
+  integrity sha512-ywZjKGoSSAECGYOd9bJpws6d4867SN686obUWT/sRmo1c/Q8V+jWyInvlqwKa0BOvTHHwYeB2WFUEvd6PADeOQ==
   dependencies:
     cluster-key-slot "1.1.2"
 
@@ -6198,10 +6198,10 @@ hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   dependencies:
     react-is "^16.7.0"
 
-hookified@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/hookified/-/hookified-1.10.0.tgz#ee7d7c83d6dec027aaa2296a8ffeadd84cbd9fd2"
-  integrity sha512-dJw0492Iddsj56U1JsSTm9E/0B/29a1AuoSLRAte8vQg/kaTGF3IgjEWT8c8yG4cC10+HisE1x5QAwR0Xwc+DA==
+hookified@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/hookified/-/hookified-1.11.0.tgz#085a8f1e196ffe31905d5122b40a8e547c69e660"
+  integrity sha512-aDdIN3GyU5I6wextPplYdfmWCo+aLmjjVbntmX6HLD5RCi/xKsivYEBhnRD+d9224zFf008ZpLMPlWF0ZodYZw==
 
 html-entities@^2.5.2:
   version "2.5.2"
