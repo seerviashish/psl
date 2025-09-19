@@ -39,7 +39,7 @@
     "@mui/material": "^5.18.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^17.2.2",
-    "firebase": "^12.1.0",
+    "firebase": "^12.3.0",
     "firebase-admin": "^13.5.0",
     "google-auth-library": "^10.3.0",
     "graphql": "^16.11.0",
