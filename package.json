@@ -68,7 +68,7 @@
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.5.2",
-    "@types/react": "^19.1.13",
+    "@types/react": "^19.1.15",
     "@types/react-dom": "^19.1.9",
     "@types/shelljs": "^0.8.17",
     "@types/uuid": "^11.0.0",
