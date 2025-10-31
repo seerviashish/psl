@@ -90,7 +90,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.0",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
     "tsc-watch": "^7.2.0",
