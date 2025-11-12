@@ -69,7 +69,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
+    "@types/react-dom": "^19.2.3",
     "@types/shelljs": "^0.8.17",
     "@types/uuid": "^11.0.0",
     "@types/yargs": "^17.0.34",
