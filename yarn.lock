@@ -5583,10 +5583,10 @@ firebase-admin@^13.5.0:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/storage" "^7.14.0"
 
-firebase-tools@^14.25.0:
-  version "14.25.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-14.25.0.tgz#c076a63037cd95934607d3a0cef9a7c380136b4e"
-  integrity sha512-nwZA9TAnd5FWJQGJpJ/xTKmmROq33U1c7ilqr6KFoZSYtBv3iomdGxjvs7gI329vxgQBuqT/93/Ivkj0TNmJDw==
+firebase-tools@^14.25.1:
+  version "14.25.1"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-14.25.1.tgz#139d8373dab1bb1471928ad35fad6c1776fe7ae5"
+  integrity sha512-EgaCx+ogAEBswl6M4wxl25f599JL7/4DwRhHELEoN9e6euR+7n+4dzGCsTPZAm5FN9Iiyjre2XYmlSGXWxoWIA==
   dependencies:
     "@apphosting/build" "^0.1.6"
     "@apphosting/common" "^0.0.8"
