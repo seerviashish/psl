@@ -5210,10 +5210,10 @@ firebase-admin@^13.7.0:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/storage" "^7.19.0"
 
-firebase-tools@^15.9.0:
-  version "15.9.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.9.0.tgz#28d83e6cf690918945994124d1cf2c4d1e816878"
-  integrity sha512-U0QE1dk1qGpj/3o0iEZ8l0PcQuSJoqggegfvGG+yAjy3QqnRZllm3KWOndBReNLYvpuMPh+OLslWC/aRe/2UYg==
+firebase-tools@^15.9.1:
+  version "15.9.1"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.9.1.tgz#997a3fe78259212b8c3191bebddc4575c30876f3"
+  integrity sha512-QaC8uaQgxunLLOiRsUHPTcNEHiUpJt88rIzD8/fTbCr7MM3//SWMOI6KTY08gN5CP061X140vfWk+WARiwm2yg==
   dependencies:
     "@apphosting/build" "^0.1.6"
     "@apphosting/common" "^0.0.8"
@@ -7084,17 +7084,10 @@ mimic-function@^5.0.0:
   resolved "https://registry.yarnpkg.com/mimic-function/-/mimic-function-5.0.1.tgz#acbe2b3349f99b9deaca7fb70e48b83e94e67076"
   integrity sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==
 
-minimatch@^10.0.0:
+minimatch@^10.0.0, minimatch@^10.2.0:
   version "10.2.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-10.2.4.tgz#465b3accbd0218b8281f5301e27cedc697f96fde"
   integrity sha512-oRjTw/97aTBN0RHbYCdtF1MQfvusSIBQM0IZEgzl6426+8jSC0nF1a/GmnVLpfB9yyr6g6FTqWqiZVbxrtaCIg==
-  dependencies:
-    brace-expansion "^5.0.2"
-
-minimatch@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-10.2.0.tgz#e710473e66e3e1aaf376d0aa82438375cac86e9e"
-  integrity sha512-ugkC31VaVg9cF0DFVoADH12k6061zNZkZON+aX8AWsR9GhPcErkcMBceb6znR8wLERM2AkkOxy2nWRLpT9Jq5w==
   dependencies:
     brace-expansion "^5.0.2"
 
