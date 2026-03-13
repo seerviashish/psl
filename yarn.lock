@@ -1365,10 +1365,10 @@
     "@graphql-codegen/plugin-helpers" "^6.0.0"
     tslib "~2.6.0"
 
-"@graphql-codegen/cli@^6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-6.2.0.tgz#604043feea6a5a95cfd1f4562e41e99cbf0c0f84"
-  integrity sha512-BNebfzbZ3qa+HNs35ug69A8Ma39ky7oy9Lc5SnmnFwW3/38NbqoHCKre+Hwle7ukdD8fWkhi5S01GdiNjIlwhQ==
+"@graphql-codegen/cli@^6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-6.2.1.tgz#c9f4e6ee180bafa433cd635d5e30d27ed9c0c900"
+  integrity sha512-E1B+5nBda2l89Pci5M0HcEj2Hmx2yhORFX+1T3rmwpQjdOiulo+h9JifWxKomUpjfbmU1YkBSd47CCGLFPU10A==
   dependencies:
     "@babel/generator" "^7.18.13"
     "@babel/template" "^7.18.10"
