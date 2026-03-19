@@ -5079,10 +5079,10 @@ firebase-admin@^13.7.0:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/storage" "^7.19.0"
 
-firebase-tools@^15.10.1:
-  version "15.10.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.10.1.tgz#83760f974be43ec69b50456e0f09485323e5c013"
-  integrity sha512-atrHcyKUtW6rAiSM4miVLjc+sQl2Ky4YLjB72dAOvF6FachaW/o6/stfQp4zdkjOrjYHEXUU+46r7+VNpYTzIg==
+firebase-tools@^15.11.0:
+  version "15.11.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.11.0.tgz#7aa2e7be5c8746a88342864566453df3bdecda87"
+  integrity sha512-Ky2sBl9puYShitmwQWdADOMNUod89G2mghnp5vF41Vl1U0+iDL72jm0fN4tAoaH+8Z8w8wpqkELZtIV8wthW3w==
   dependencies:
     "@apphosting/build" "^0.1.6"
     "@apphosting/common" "^0.0.8"
