@@ -5307,10 +5307,10 @@ firebase-admin@^13.10.0:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/storage" "^7.19.0"
 
-firebase-tools@^15.18.0:
-  version "15.18.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.18.0.tgz#179b592d2cbdae7b7b8d5844477e81844c6ef5a5"
-  integrity sha512-rILpd9JgjifGRUSxXJC4Iu1h6wEZ7BuoYHZerT+CuY9SNopm8ykHOCjoFCANFplQe0xIGMkJtaXdEVN1uCB75A==
+firebase-tools@^15.19.0:
+  version "15.19.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.19.0.tgz#c3226d175148ffe737d5a6ca7fb625241a11988d"
+  integrity sha512-ZcbyqbYkn+e7rsFVhurbkmeuzkxGBqhmrU1A+V3mzO8yfqsQLBU4MSqfez7Lkmk6LRu8Vl9uXOoDTlzQ2ej9rw==
   dependencies:
     "@apphosting/common" "^0.0.8"
     "@electric-sql/pglite" "^0.3.3"
@@ -5380,7 +5380,7 @@ firebase-tools@^15.18.0:
     triple-beam "^1.3.0"
     universal-analytics "^0.5.3"
     update-notifier-cjs "^5.1.6"
-    uuid "^8.3.2"
+    uuid "^11.1.1"
     winston "^3.0.0"
     winston-transport "^4.4.0"
     ws "^7.5.10"
@@ -9901,7 +9901,12 @@ uuid@^10.0.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-10.0.0.tgz#5a95aa454e6e002725c79055fd42aaba30ca6294"
   integrity sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==
 
-uuid@^8.0.0, uuid@^8.3.2:
+uuid@^11.1.1:
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-11.1.1.tgz#f6d81d2e1c65d00762e5e29b16c5d2d995e208ad"
+  integrity sha512-vIYxrBCC/N/K+Js3qSN88go7kIfNPssr/hHCesKCQNAjmgvYS2oqr69kIufEG+O4+PfezOH4EbIeHCfFov8ZgQ==
+
+uuid@^8.0.0:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
