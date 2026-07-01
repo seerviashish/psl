@@ -5113,10 +5113,10 @@ firebase-admin@^13.10.0:
     "@google-cloud/firestore" "^7.11.0"
     "@google-cloud/storage" "^7.19.0"
 
-firebase-tools@^15.22.1:
-  version "15.22.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.22.1.tgz#6ce227f9f181c31825fd2ced135ae000590ef427"
-  integrity sha512-Dx3Pz2h7c2C50tgolw9YrOh3LqPuoDuOG7XWIwhf9fAgBDWevQdcDBEysnIbNqhRcgIM1zyX2z+N+zkJGoj2Kg==
+firebase-tools@^15.22.4:
+  version "15.22.4"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.22.4.tgz#caad14c7192bfb812e191009394e3b5dfdab9594"
+  integrity sha512-opTIWpf1S4+yT0cArSD0CBp3QrcOGSP4PEWif6Gts2Y0TYBjM6jkQMPGq8ALdjPC1aPbUZ8dLMchn10Q/EwHwQ==
   dependencies:
     "@apphosting/common" "^0.0.8"
     "@electric-sql/pglite" "^0.3.3"
@@ -5186,8 +5186,7 @@ firebase-tools@^15.22.1:
     winston-transport "^4.4.0"
     ws "^7.5.10"
     yaml "^2.8.3"
-    zod "^3.24.3"
-    zod-to-json-schema "^3.24.5"
+    zod "^4.0.0"
 
 firebase@^12.15.0:
   version "12.15.0"
@@ -9956,7 +9955,7 @@ zip-stream@^6.0.1:
     compress-commons "^6.0.2"
     readable-stream "^4.0.0"
 
-zod-to-json-schema@^3.24.5, zod-to-json-schema@^3.25.0:
+zod-to-json-schema@^3.25.0:
   version "3.25.1"
   resolved "https://registry.yarnpkg.com/zod-to-json-schema/-/zod-to-json-schema-3.25.1.tgz#7f24962101a439ddade2bf1aeab3c3bfec7d84ba"
   integrity sha512-pM/SU9d3YAggzi6MtR4h7ruuQlqKtad8e9S0fmxcMi+ueAK5Korys/aWcV9LIIHTVbj01NdzxcnXSN+O74ZIVA==
@@ -9966,12 +9965,7 @@ zod-to-json-schema@^3.24.5, zod-to-json-schema@^3.25.0:
   resolved "https://registry.yarnpkg.com/zod-validation-error/-/zod-validation-error-4.0.2.tgz#bc605eba49ce0fcd598c127fee1c236be3f22918"
   integrity sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ==
 
-zod@^3.24.3:
-  version "3.25.76"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
-  integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
-
-"zod@^3.25 || ^4.0", "zod@^3.25.0 || ^4.0.0":
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-4.3.5.tgz#aeb269a6f9fc259b1212c348c7c5432aaa474d2a"
-  integrity sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==
+"zod@^3.25 || ^4.0", "zod@^3.25.0 || ^4.0.0", zod@^4.0.0:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.4.3.tgz#b680f172885d18bbebf21a834ea25e55a1bbf356"
+  integrity sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==
