@@ -59,7 +59,7 @@
     "uuid": "^14.0.1",
     "winston-daily-rotate-file": "^5.0.0",
     "ws": "^8.21.1",
-    "yargs": "^18.0.0"
+    "yargs": "^18.1.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^7.1.2",
