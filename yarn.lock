@@ -7052,10 +7052,10 @@ mkdirp@^1.0.3:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mkver@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/mkver/-/mkver-5.0.1.tgz#abe3eefd7d883c18ba85b049406399d3621798b0"
-  integrity sha512-f6nuAbCTtcTsA7Q6IQQzKkjowClVFO+wp2rspUYyBMfeYAnKbh14cONogjoNfHC9KlDqpcCNF2i+ylG/Nv8DGg==
+mkver@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/mkver/-/mkver-5.0.4.tgz#e6c4410d3341ee5769a57743dbcf9c199dda969f"
+  integrity sha512-g069v0qleVVrqG17OAsNXAnyrXBe9ARxw+eVYyXALZ3IK8DJvRSTkqZwBJ3G0ec8X7malPKmST8aAvyeFikN1A==
   dependencies:
     semver "^7.8.2"
 
