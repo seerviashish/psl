@@ -4990,10 +4990,10 @@ firebase-admin@^14.3.0:
     "@google-cloud/firestore" "^8.7.1"
     "@google-cloud/storage" "^7.22.0"
 
-firebase-tools@^15.27.0:
-  version "15.27.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.27.0.tgz#aaeda2712e9f3dadd4154a666a06dba4f5507db5"
-  integrity sha512-gQMMPkv20hAuCUy596Z/GPA0YiwJEr6xEwvJnc+BeZnMlJVYZcl4OL8vvPNqDDcQmrXlNRNAP/qpyVc+5jkxTw==
+firebase-tools@^15.28.1:
+  version "15.28.1"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-15.28.1.tgz#a21b3e9936cf56832d55efaf02a3e0bde08491b7"
+  integrity sha512-5qbKmO0Am0++a335zzUe9/TFdM/dn6jGNKVp2JUcHwDrOK+5wU0LT/fGX+8rjQM8AwfzPp+eMowWX1uDGI+aQg==
   dependencies:
     "@apphosting/common" "^0.0.8"
     "@electric-sql/pglite" "^0.3.3"
